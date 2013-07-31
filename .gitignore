@@ -6,4 +6,7 @@ error.log.php
 *.sql
 
 # Sauf le fichier sql d'install d'origine
-!/src/sql*/*.sql
+!/src/sql*/*.sq
+
+# Projet NetBeans
+nbproject
