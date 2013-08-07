@@ -204,7 +204,7 @@ a.subitem:hover {
 	position: absolute;
 	z-index: 900;
 	visibility: hidden;
-	right: 150px;
+	right: 165px;
 	top: 0px;
 	margin: 0;
 	text-decoration: none;
@@ -719,7 +719,9 @@ background-color:#c9d8eb;
 	width: 350px;
 	line-height: 25px;
 }
-
+.accueilRecherche td {
+	vertical-align: middle;
+}
 .fav_content_col {
 	width: 220px;
 }

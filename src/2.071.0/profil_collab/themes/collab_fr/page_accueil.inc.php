@@ -31,7 +31,10 @@ check_page_variables($page_variables);
 		<img src="<?php echo $DIR . $_SESSION['theme']->getDir_theme() ?>images/supprime.gif" border="0">
 	</a>
 </div>
-<div class="emarge" id="accueil_content" style="background-image: url(<?php echo $DIR . $_SESSION['theme']->getDir_theme() ?>images/accueil.gif); background-position:bottom center; background-repeat:no-repeat; height:97%">
+<div class="emarge" id="accueil_content">
+<div style="width:100%;position:absolute;bottom:20px;left:50%;margin-left:-150px;cursor:pointer" onclick="window.open('http://www.sootherp.fr/')" title="SoothERP - www.sootherp.fr">
+	<img src="<?=$DIR?>/fichiers/images/soothERP_logo.png" width="300" />
+</div>
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 		<tr>
 			<td style="width:47%; height:50px"><img src="<?php echo $DIR . $_SESSION['theme']->getDir_theme() ?>images/blank.gif" width="100%" height="50px" id="imgsizeform"/></td>
@@ -53,48 +56,54 @@ check_page_variables($page_variables);
 						<div class="accueil_block_round3corner" id="fast_search">
 							<br />
 
-							<div id="acc_recherche_contact_block" style="width:350px">
+							<div id="acc_recherche_contact_block" style="width:420px">
 								<form>
-									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="accueilRecherche">
 										<tr>
 											<td  width="180px">Rechercher un Contact </td>
-											<td><label>
-													<input type="text" name="acc_find_contact" id="acc_find_contact" class="classinput_nsize"  />
-												</label></td>
+											<td>
+												<input type="text" name="acc_find_contact" id="acc_find_contact" class="classinput_nsize"  />
+											</td>
 											<td>&nbsp;</td>
-											<td><input name="acc_find_contact_submit" id="acc_find_contact_submit" type="image" src="<?php echo $DIR . $_SESSION['theme']->getDir_theme() ?>images/ico_recherche.gif"  /></td>
+											<td>
+												<a href="#" class="btn btn-small" name="acc_find_contact_submit" id="acc_find_contact_submit" ><i class="icon-search"></i></a>
+											</td>
 										</tr>
 									</table>
 								</form>
 							</div>
 							<div style="height:18px; line-height:18px;"></div>
 
-							<div id="acc_recherche_article_block" style="width:350px">
+							<div id="acc_recherche_article_block" style="width:420px">
 								<form>
-									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="accueilRecherche">
 										<tr>
 											<td  width="180px">Rechercher un Article </td>
-											<td><label>
-													<input type="text" name="acc_find_article" id="acc_find_article" class="classinput_nsize"  />
-												</label></td>
+											<td>
+												<input type="text" name="acc_find_article" id="acc_find_article" class="classinput_nsize"  />
+											</td>
 											<td>&nbsp;</td>
-											<td><input name="acc_find_article_submit" id="acc_find_article_submit" type="image" src="<?php echo $DIR . $_SESSION['theme']->getDir_theme() ?>images/ico_recherche.gif"  /></td>
+											<td>
+												<a href="#" class="btn btn-small" name="acc_find_article_submit" id="acc_find_article_submit"  ><i class="icon-search"></i></a>
+											</td>
 										</tr>
 									</table>
 								</form>
 							</div>
 							<div style="height:18px; line-height:18px;"></div>
 
-							<div id="acc_recherche_article_block" style="width:350px">
+							<div id="acc_recherche_article_block" style="width:420px">
 								<form>
-									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" class="accueilRecherche">
 										<tr>
 											<td width="180px">Rechercher un document </td>
-											<td><label>
-													<input type="text" name="acc_find_document" id="acc_find_document" class="classinput_nsize" />
-												</label></td>
+											<td>
+												<input type="text" name="acc_find_document" id="acc_find_document" class="classinput_nsize" />
+											</td>
 											<td>&nbsp;</td>
-											<td><input name="acc_find_document_submit" id="acc_find_document_submit" type="image" src="<?php echo $DIR . $_SESSION['theme']->getDir_theme() ?>images/ico_recherche.gif"  /></td>
+											<td>
+												<a href="#" class="btn btn-small" name="acc_find_document_submit" id="acc_find_document_submit"   ><i class="icon-search"></i></a>
+											</td>
 										</tr>
 									</table>
 								</form>

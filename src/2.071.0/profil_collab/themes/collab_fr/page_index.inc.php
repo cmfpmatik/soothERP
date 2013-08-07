@@ -291,14 +291,16 @@ if (!$_SESSION['user']->check_permission ("38")) {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15" />
-<link href="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>css/_common_style.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>css/_annuaire_style.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>css/_formulaire.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>css/mini_moteur.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>css/_articles.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>css/_documents.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>css/annuaire_modif_fiche.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>css/_small_wysiwyg.css" rel="stylesheet" type="text/css" />
+<link href="<?=$DIR?>theme/default/css/bootstrap/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="<?=$DIR?>theme/default/css/bootstrap/font-awesome.css" rel="stylesheet" type="text/css" />
+<link href="<?=$DIR?>theme/default/css/common_style.css" rel="stylesheet" type="text/css" />
+<link href="<?=$DIR?>theme/default/css/annuaire_style.css" rel="stylesheet" type="text/css" />
+<link href="<?=$DIR?>theme/default/css/formulaire.css" rel="stylesheet" type="text/css" />
+<link href="<?=$DIR?>theme/default/css/mini_moteur.css" rel="stylesheet" type="text/css" />
+<link href="<?=$DIR?>theme/default/css/articles.css" rel="stylesheet" type="text/css" />
+<link href="<?=$DIR?>theme/default/css/documents.css" rel="stylesheet" type="text/css" />
+<link href="<?=$DIR?>theme/default/css/annuaire_modif_fiche.css" rel="stylesheet" type="text/css" />
+<link href="<?=$DIR?>theme/default/css/small_wysiwyg.css" rel="stylesheet" type="text/css" />
 <?php 
 if (isset($modules)) {
 	foreach ($modules as $module) {
@@ -313,10 +315,10 @@ if (isset($modules)) {
 
 ?>
 
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/prototype.js"/></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/scriptaculous/scriptaculous.js?load=effects,dragdrop"/></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/selectupdater.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/import_tarifs_fournisseur_csv.js"></script>
+<script src="<?=$DIR?>theme/default/js/prototype.js"/></script>
+<script src="<?=$DIR?>theme/default/js/scriptaculous/scriptaculous.js?load=effects,dragdrop"/></script>
+<script src="<?=$DIR?>theme/default/js/selectupdater.js"></script>
+<script src="<?=$DIR?>theme/default/js/import_tarifs_fournisseur_csv.js"></script>
 <?php 
 if (isset($modules)) {
 	foreach ($modules as $module) {
@@ -330,25 +332,25 @@ if (isset($modules)) {
 }
 
 ?>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_tab_alerte.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_row_menu.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_main_menu.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_mini_moteur.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_articles.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_documents.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_compte_bancaire.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_compte_caisse.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_compte_tpe.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_compte_cb.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_taches.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_compta.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_stock.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_tarifs.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_small_wysiwyg.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_annuaire.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_formulaire.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/swfobject.js"></script>
-<script src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>javascript/_general.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_tab_alerte.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_row_menu.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_main_menu.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_mini_moteur.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_articles.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_documents.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_compte_bancaire.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_compte_caisse.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_compte_tpe.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_compte_cb.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_taches.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_compta.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_stock.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_tarifs.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_small_wysiwyg.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_annuaire.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_formulaire.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/swfobject.js"></script>
+<script src="<?=$DIR?>theme/default/js/collab/_general.js"></script>
 
 <script type="text/javascript"> 
 <!--/*--><![CDATA[//><!--
@@ -430,9 +432,9 @@ function session_change_magasin (id_magasin) {
 	foreach ($_SESSION['magasins'] as $magasin) {
 		?>
 		if (id_magasin == <?php echo $magasin->getId_magasin ();?>) {
-			$("img_option_info_magasin_<?php echo $magasin->getId_magasin ();?>").src = "<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>images/actuel.gif";
+			$("img_option_info_magasin_<?php echo $magasin->getId_magasin ();?>").src = "<?=$DIR?>theme/default/images/actuel.gif";
 		} else {
-			$("img_option_info_magasin_<?php echo $magasin->getId_magasin ();?>").src = "<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>images/blank.gif";
+			$("img_option_info_magasin_<?php echo $magasin->getId_magasin ();?>").src = "<?=$DIR?>theme/default/images/blank.gif";
 		}
 		<?php 
 	}
@@ -465,7 +467,7 @@ var quantite_locked = false;
 //passage par un règlement rapide (pour retourner à l'onglet principale du document aprés un règlement rapide
 var reglement_rapide = false;
 //directories
-var dirtheme = "<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>";
+var dirtheme = "<?=$DIR?>theme/default/";
 //historique
 var historique = new Array();
 var historique_request = new Array();
@@ -616,12 +618,13 @@ var PRICES_DECIMAL_SEPARATOR = "<?php echo $PRICES_DECIMAL_SEPARATOR;?>";
 </script>
 </head>
 
-<body id="id_body" onclick="close_mini_calendrier();" style="background-image: url(<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>images/main_content_bg.gif); background-repeat:repeat-x; background-attachment:fixed">
+<body id="id_body" onclick="close_mini_calendrier();" class="colorise00">
 <div id="grand_contener">
-<div id="bgmain_menu"></div>
+<div id="bgmain_menu" class="colorise0"></div>
 
 <iframe id="framealert" frameborder="0" scrolling="no" src="about:blank"></iframe>
 <div id="menu" style="z-index:300">
+	<img src="<?=$DIR?>fichiers/images/sootherp_ico.png" style="margin-left:5px" />
 <?php 
 
 //nouvelle maj dispo
@@ -636,7 +639,7 @@ var PRICES_DECIMAL_SEPARATOR = "<?php echo $PRICES_DECIMAL_SEPARATOR;?>";
 $i = 0;
 foreach ($menu1 as $smenu) {
 	?>
-	<div style="position:absolute; top:0px; left:0px; display:none;" id="<?php echo $smenu[0]?>">
+	<div style="position:absolute; top:0px; display:none;" id="<?php echo $smenu[0]?>">
 	<table border="0" cellpadding="0" cellspacing="0" id="table_<?php echo $smenu[0]?>"><tr><td>
 	<a id="link_<?php echo $smenu[0]?>"  class="item" href="#"><?php echo $smenu[4]?></a>
 	</td></tr></table>	
@@ -650,7 +653,7 @@ $i = 0;
 foreach ($menu1 as $smenu) {
 	if (isset($smenu[5])) {
 		?>
-		<div style="position:absolute; top:22px; left:0px; display:none; z-index:300; filter:Alpha(opacity=90);" id="smenu<?php echo $i?>">
+		<div style="position:absolute; top:23px; left:0px; display:none; z-index:300; filter:Alpha(opacity=90);" id="smenu<?php echo $i?>" class="smenu">
 		<table border="0" cellpadding="0" cellspacing="0"  class="subitem" id="table_smenu<?php echo $i?>">
 		<tr>
 		<td>
@@ -663,7 +666,7 @@ foreach ($menu1 as $smenu) {
 				if ($ssmenu[0] == "separateur") {
 					?>
 						<td style="line-height:3px; height:3px">
-						<img src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>images/separateur.gif" width="100%" height="3px" />
+						<img src="<?=$DIR?>theme/default/images/separateur.gif" width="100%" height="3px" />
 						<span class="subitem"  id="<?php echo $ssmenu[0]?>"></span>
 					<?php
 					} elseif($ssmenu[0] == "lien_externe"){?>
@@ -733,11 +736,11 @@ $i++;
 
 <div style="visibility:block; float:right; position:absolute; bottom:0px; right:0px; z-index:500"><br /><a href="http://www.lundimatin.fr" target="_blank" rel="noreferrer"><img src="<?php echo $DIR;?>/fichiers/images/powered_by_lundimatin.png" width="120"/></a>
 </div>
-<div  style="visibility:block; float:right; position:absolute; top:0px; right:25px; z-index:500">
+<div  style="visibility:block; float:right; position:absolute; top:0px; right:60px; z-index:500">
 	<table border="0" cellpadding="0" cellspacing="0" id="option_info"><tr><td>
 	<a id="link_option_info"  class="item" href="#"> Options </a>
 	</td></tr></table>
-	<div style="position:absolute; width:220px; top:22px; right:-30px; display:none; z-index:300; filter:Alpha(opacity=90);" id="option_info_smenu">
+	<div style="position:absolute; width:220px; top:22px; right:-40px; display:none; z-index:300; filter:Alpha(opacity=90);" id="option_info_smenu" class="smenu">
 	<table border="0" cellpadding="0" cellspacing="0"  class="subitem" id="option_info_stable" >
 		<tr>
 		<td>
@@ -765,14 +768,16 @@ $i++;
 						window.open ("<?php echo $_ENV['CHEMIN_ABSOLU'].$_SESSION['interfaces'][$id_interface]->getDossier()?>", "<?php echo $destination;?>");
 						}, false);
 					</script>
-					<img src="<?php 
-					if ($id_interface == $_SESSION['user']->getId_interface ()) {
-						echo  $DIR.$_SESSION['theme']->getDir_theme().'images/actuel.gif';
-				} else {
-						echo  $DIR.$_SESSION['theme']->getDir_theme().'images/blank.gif';
-					}
-					?>" width="15px" height="15px"/>
-					<?php echo $_SESSION['interfaces'][$id_interface]->getLib_interface() ?>
+					<?php
+						if ($id_interface == $_SESSION['user']->getId_interface ()) {	?>
+						<i class="icon-hand-right"></i>
+						
+					<?php
+						} else {	?>
+						<i class="icon-check-empty"></i>
+					<?php 
+						}
+						echo $_SESSION['interfaces'][$id_interface]->getLib_interface() ?>
 					</a>
 				</td></tr>			
 				<?php
@@ -783,7 +788,7 @@ $i++;
 			</table>
 			<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
 				<tr><td style="line-height:3px; height:3px">
-				<img src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>images/separateur.gif" width="100%" height="3px" />
+				<img src="<?=$DIR?>theme/default/images/separateur.gif" width="100%" height="3px" />
 				</td></tr>
 			</table>
 			<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
@@ -797,12 +802,14 @@ $i++;
 				?>
 				<tr><td>
 				<a class="subitem"  id="option_info_magasin_<?php echo $magasin->getId_magasin ();?>"  href="#">
-				<img src="<?php if ($magasin->getId_magasin () == $_SESSION['magasin']->getId_magasin ()) {
-					echo   $DIR.$_SESSION['theme']->getDir_theme().'images/actuel.gif';
-				} else {
-					echo   $DIR.$_SESSION['theme']->getDir_theme().'images/blank.gif';
-				}?>" width="15px" height="15px" id="img_option_info_magasin_<?php echo $magasin->getId_magasin ();?>"/>
-				<?php echo htmlentities($magasin->getLib_magasin ()) ?> </a>
+				<?php if ($magasin->getId_magasin () == $_SESSION['magasin']->getId_magasin ()) { ?>
+					<i id="img_option_info_magasin_<?php echo $magasin->getId_magasin ();?>" class="icon-hand-right"></i>
+				<?php
+					} else {	?>
+					<i class="icon-check-empty"></i>
+				<?php
+					}
+					echo htmlentities($magasin->getLib_magasin ()) ?> </a>
 				</td></tr>			
 				<?php
 			}
@@ -810,7 +817,7 @@ $i++;
 			</table>
 			<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
 				<tr><td style="line-height:3px; height:3px">
-				<img src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>images/separateur.gif" width="100%" height="3px" />
+				<img src="<?=$DIR?>theme/default/images/separateur.gif" width="100%" height="3px" />
 				</td></tr>
 			</table>
 			
@@ -818,22 +825,12 @@ $i++;
 			
 			<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
 				<tr><td>
-				<a class="subitem"  id="option_info_licence"  href="#">Licence</a>
+				<a class="subitem"  id="option_info_licence"  href="#"><i class="icon-eye-open"></i> Licence</a>
 				</td></tr>
 			</table>
 			<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
 				<tr><td>
-				<a class="subitem"  id="option_info_assistance"  href="#">Assistance</a>
-				</td></tr>
-			</table>
-			<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
-				<tr><td style="line-height:3px; height:3px">
-				<img src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>images/separateur.gif" width="100%" height="3px" />
-				</td></tr>
-			</table>
-			<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
-				<tr><td>
-				<a class="subitem"  id="option_info_deconnexion"  href="#">Déconnexion</a>
+				<a class="subitem"  id="option_info_assistance"  href="#"><i class="icon-info-sign"></i> Assistance</a>
 				</td></tr>
 			</table>
 		</td>
@@ -870,10 +867,10 @@ $i++;
 <?php 
 if ($AFFICHE_DEBUG) {
 	?>
-	<div  style="visibility:block; float:right; position:absolute; top:0px; right:115px; z-index:500; width:10px">
+	<div  style="visibility:block; float:right; position:absolute; top:4px; right:150px; z-index:500; width:10px">
 		<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
 			<tr><td>
-			<a id="toggle_debug_iframe"  href="#">D</a>
+			<a id="toggle_debug_iframe"  href="#"><i class="icon-info-sign icon-large"></i></a>
 			</td></tr>
 		</table>
 		<script type="text/javascript">
@@ -884,27 +881,23 @@ if ($AFFICHE_DEBUG) {
 }
 ?>
 
-<div id="refresh_content">
-<img src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>images/actualiser.gif" align="top" alt="Actualiser" title="Actualiser" />
+<div id="refresh_content" style="position:absolute;top:3px;">
+	<a href="#" style="font-size:16px" title="Actualiser"> &nbsp; <i class="icon-refresh"></i> &nbsp; </a>
 </div>
-<div id="load_show" style=" visibility:hidden; line-height:22px; height:22px;">
+<div id="disconnect" style="position:absolute;top:3px;right:0;z-index:1000;font-size:16px;" onclick="javascript:window.open('<?=$DIR?>site/__session_stop.php','_top');">
+	<a href="#" title="Se déconnecter"> &nbsp; <i class="icon-off" style="color:#E80000"></i> &nbsp; </a>
+</div>
+<div id="load_show" style=" visibility:visible; line-height:22px; height:22px;">
 	<div id="boxcontent">
-					<strong>Chargement en cours</strong>
+		<img src="<?=$DIR?>fichiers/images/ajax-loader.gif" alt="Chargement en cours..."/>
 	</div>
-	<script type="text/javascript">
-		// <![CDATA[
-		
-swfobject.embedSWF("<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>images/waiting.swf", "boxcontent", "142", "15", "9.0.0", "expressInstall.swf", false,{wmode: "transparent", quality: "high", allowScriptAccess: "always"}, {id: "swf_waiting"});
-		
-		// ]]>
-	</script>
 </div>
 
 <iframe id="framemenu" frameborder="0" scrolling="no" src="about:blank"></iframe>
 
 <div id="wait_calcul_content" style="display:none" class="alert_wait_calcul">
 <div style="text-align:center; font:16px bolder Arial, Helvetica, sans-serif">
-<img src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>images/wait_calcul.gif" alt="" />
+<img src="<?=$DIR?>theme/default/images/wait_calcul.gif" alt="" />
 </div>
 </div>
 
@@ -933,7 +926,7 @@ swfobject.embedSWF("<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>images/w
 					<tr>
 						<td colspan="2" style="text-align:center; font-weight:bolder; line-height:20px; height:20px; border-bottom:1px solid #000000;">
 						
-				<a href="#" id="close_ask_login"><img src="<?php echo $DIR.$_SESSION['theme']->getDir_theme()?>images/supprime.gif" border="0" style="float:right"></a>
+				<a href="#" id="close_ask_login"><img src="<?=$DIR?>theme/default/images/supprime.gif" border="0" style="float:right"></a>
 						 
 						Veuillez vous r&eacute;identifier
 						</td>
@@ -1000,7 +993,7 @@ Nous vous recommandons de rafra&icirc;chir la page sur laquelle  vous travaillez
 					</tr>
 					<tr>
 						<td colspan=2 align="center"><input type="submit" name="refresh_content_alert_onException" id="refresh_content_alert_onException" value="Rafra&icirc;chir la page" />
-						<input type="button" name="norefresh_content_alert_onException" id="norefresh_content_alert_onException" value="Continuer sans rafra&icirc;chir" /></td></tr>
+							<input type="button" name="norefresh_content_alert_onException" id="norefresh_content_alert_onException" value="Continuer sans rafra&icirc;chir" /><br><br></td></tr>
 					<tr>
 						<td colspan=2 align="right">	</td>
 					</tr>
