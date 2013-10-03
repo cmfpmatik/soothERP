@@ -1,4 +1,5 @@
 <?php
+// encodage en ANSI sinon bug 
 // *************************************************************************************************************
 // FONCTIONS DE GESTION DES ERREURS
 // *************************************************************************************************************
@@ -43,115 +44,107 @@ function alerte_dev ($erreur, $libelle_supp = "", $errno = "", $errstr = "", $er
 	$sensibleDataSubstitute = "** texte masqué par sécurité **";
 	
 	$rapport = "
-	<b>Alerte de développement LMB</b><br />
+	<b>Alerte de développement</b><br />
 	--------------<br />";
 	
 		
-		$rapport .= "
-		Serveur : ".$_SERVER['REF_SERVEUR']." / ".$_SERVER['SERVER_NAME']." / ".affiche_version ($_SERVER['VERSION'])."<br /> ";
-		
-		$rapport .= "--------------\n 
-		Script en erreur : ".$_SERVER["PHP_SELF"]."\n"; 
-		if (isset($_SERVER["HTTP_REFERER"])) {
-			$rapport .= "Referer = ".$_SERVER["HTTP_REFERER"]."\n ";
-		}
-		if (isset($_SERVER["HTTP_USER_AGENT"])) {
-		$rapport .= "
-			Navigateur : ".$_SERVER["HTTP_USER_AGENT"]."
-		--------------\n";
-		}
+	$rapport .= "
+	Serveur : ".$_SERVER['REF_SERVEUR']." / ".$_SERVER['SERVER_NAME']." / ".affiche_version ($_SERVER['VERSION'])."<br /> ";
 	
 	$rapport .= "
-	===========================================================================\n
-	<b>RAPPORT D'ERREUR SUR SERVEUR ".$_SERVER['REF_SERVEUR']."</b>\n\n
+	--------------<br />
+	Script en erreur : ".$_SERVER["PHP_SELF"]."<br />";
+	if (isset($_SERVER["HTTP_REFERER"])) {
+		$rapport .= "Referer = ".$_SERVER["HTTP_REFERER"]."<br /> ";
+	}
+	if (isset($_SERVER["HTTP_USER_AGENT"])) {
+	$rapport .= "
+	Navigateur : ".$_SERVER["HTTP_USER_AGENT"]."
+	--------------<br />";
+	}
 
-	===========================================================================\n
+	$rapport .= "
+	===========================================================================<br />
+	<b>RAPPORT D'ERREUR SUR SERVEUR ".$_SERVER['REF_SERVEUR']."</b><br /><br />
+
+	===========================================================================<br />
 	".$erreur."
 
-	===========================================================================\n
-	<b>INFORMATIONS COMPLEMENTAIRES</b> :\n\n
+	===========================================================================<br />
+	<b>INFORMATIONS COMPLEMENTAIRES</b> :<br /><br />
 
-	Page = ".$_SERVER["PHP_SELF"]."\n
-	Page complète = ".$_SERVER["REQUEST_URI"]."\n
-  Heure: ".date('d-m-Y H:m:i', time())."\n
+	Page = ".$_SERVER["PHP_SELF"]."<br />
+	Page complète = ".$_SERVER["REQUEST_URI"]."<br />
+	Heure: ".date('d-m-Y H:m:i', time())."<br />
 
-  IP = ".$_SERVER['REMOTE_ADDR']."(".$_SERVER["REMOTE_PORT"].")\n\n
+	IP = ".$_SERVER['REMOTE_ADDR']."(".$_SERVER["REMOTE_PORT"].")<br /><br />
 
-  Methode = ".$_SERVER["REQUEST_METHOD"]."\n
-  Variables transmises = ".$_SERVER["QUERY_STRING"]."\n "; 
-  if (isset($_SERVER["HTTP_REFERER"])) {
-  	$rapport .= "Referer = ".$_SERVER["HTTP_REFERER"]."\n ";
-  }
-  $rapport .= "\n
+	Methode = ".$_SERVER["REQUEST_METHOD"]."<br />
+	Variables transmises = ".$_SERVER["QUERY_STRING"]."<br /> ";
+	if (isset($_SERVER["HTTP_REFERER"])) {
+		$rapport .= "Referer = ".$_SERVER["HTTP_REFERER"]."<br /> ";
+	}
+	$rapport .= "<br />
 
-  Navigateur = "; 
-  if (isset($_SERVER["HTTP_USER_AGENT"])) {
-  	$rapport .= $_SERVER["HTTP_USER_AGENT"];
-  }
-  $rapport .= "\n\n
+	Navigateur = ";
+	if (isset($_SERVER["HTTP_USER_AGENT"])) {
+		$rapport .= $_SERVER["HTTP_USER_AGENT"];
+	}
+	$rapport .= "<br /><br />
 
-  ============================================================================\n";
-  $rapport = str_replace ($bdd_user, $sensibleDataSubstitute, $rapport);
-  $rapport = str_replace ($bdd_pass, $sensibleDataSubstitute, $rapport);
-  
+	============================================================================<br />";
+	$rapport = str_replace ($bdd_user, $sensibleDataSubstitute, $rapport);
+	$rapport = str_replace ($bdd_pass, $sensibleDataSubstitute, $rapport);
+
 	if ($ETAT_APPLICATION == "DEV" && empty($FORCE_EMAIL_DEBUG)) {
 		echo nl2br($rapport);
-		echo "<b>ENVIRONNEMENT COMPLET </b>:\n\n";
+		echo "<b>ENVIRONNEMENT COMPLET </b>:<br /><br />";
+
+
 
 		$tab = debug_backtrace();
 		html_entity_decode(elegant_dump( $tab ));
 	}
-	else {
-		if (isset($_SERVER['SERVER_NAME']) && (substr_count($_SERVER['SERVER_NAME'], 'localhost') || substr_count($_SERVER['SERVER_NAME'], '127.0.0.'))) {
-		
-			echo "<br><br><b>
-	Lundi Matin Business, le <a href='http://www.lundimatin.fr'>logiciel de gestion commerciale</a> des entreprises <br /><br />
-	La présente version modifiée de Lundi Matin Business est une distribution <a href='http://www.groovyprog.com/sootherp/' target='_blank'>SoothERP</a><br /><br />
-	Une erreur critique a été détectée. <span id='view_rapport' style='cursor: pointer;' onClick='javascript:document.getElementById(\"erreur_report\").style.display=\"\";' >Cliquez ici pour plus d'information.</span><br />
+	else {  // Le serveur n'est pas en DEV, aucune raison d'afficher quelque info que ce soit vers le navigateur, on logue dans un fichier.
 
-			Veuillez informer l'équipe de Lundi Matin en nous envoyant <a href=\"mailto:dev_team@lundimatin.fr?subject=Erreur d'application LMB&body=".str_replace("\n", "", nl2br(addslashes($rapport)))."\" >un email</a><br/> <span id='view_rapport' style='cursor: pointer;' 
-			<br /><br />
-			Vous pouvez également utilement faire avancer le projet SoothERP en notifiant l'erreur par <a href=\"mailto:sootherp.reporting@groovyprog.com?subject=Erreur d'application LMB&body=".str_replace("\n", "", nl2br(addslashes($rapport)))."\" >email</a> ou bien en complétant un rapport de bug sur le <a href='https://www.groovyprog.com/bug_mantis/' target='_blank'>bug tracker SoothERP</a></b><br/> <span id='view_rapport' style='cursor: pointer;' 
-			<div id='erreur_report' style='display: none;'>".nl2br($rapport);
-			
-			echo "<b>ENVIRONNEMENT COMPLET </b>:\n\n";
-	
-			$tab = debug_backtrace();
-			html_entity_decode(elegant_dump( $tab ));
-			echo "</div><br/>";
-		} else {
-			$tab = debug_backtrace();
-                        $rapportXML = "<?xml version='1.0' encoding='UTF-8'?>
-                                        <lmb_alerte_dev>
-                                                <serveur>".$_SERVER['SERVER_NAME']."</serveur>
-                                                <adresse_ip></adresse_ip>
-                                                <lmbversion>".affiche_version ($_SERVER['VERSION'])."</lmbversion>
-                                                <ref_serveur>".$_SERVER['REF_SERVEUR']."</ref_serveur>
-                                                <script>".$errfile."</script>
-                                                <ligne>".$errline."</ligne>
-                                                <erreur>".$errstr."</erreur>
-                                                <navigateur>".(empty($_SERVER["HTTP_USER_AGENT"]) ? "" : htmlentities($_SERVER["HTTP_USER_AGENT"]))."</navigateur>
-                                                <referer>".(empty($_SERVER["HTTP_REFERER"]) ? "" : $_SERVER["HTTP_REFERER"])."</referer>
-                                                <page>".$_SERVER["PHP_SELF"]."</page>
-                                                <page_complete>".htmlentities($_SERVER["REQUEST_URI"])."</page_complete>
-                                                <variables>".htmlentities($_SERVER["QUERY_STRING"])."</variables>
-                                                <trace></trace>
-                                        </lmb_alerte_dev>";
+
 			// Envoyer un email au développeur
 			if($EMAIL_DEV!=null) {
+				$headers = "From: \"SoothERP Bug\"<".$EMAIL_DEV.">\n";
+				$headers .= "Reply-To: support@sootherp.fr\n";
+				$headers .= "Content-Type: text/html; charset=\"iso-8859-1\"";
 				@mail ($EMAIL_DEV, "ERREUR LMB - ".affiche_version ($_SERVER['VERSION'])." - ".$_SERVER['SERVER_NAME'].(empty($libelle_supp) ? "" : "/".$libelle_supp), $rapportXML);
 				$mailStatus = "Une alerte a été envoyée à votre administrateur.<br />";
 			}
 			else {
 				$mailStatus = "Configurez l'adresse email de l'administrateur dans le fichier de configuration serveur afin qu'il reçoive automatiquement les erreurs par email.<br />";
 			}
-	
-			echo "<br><br>
-	LundiMatin Business, le <a href='http://www.lundimatin.fr'>logiciel de gestion commerciale</a> des entreprises <br />
-	Une erreur critique a été détectée. <span id='view_rapport' style='cursor: pointer;' onClick='javascript:document.getElementById(\"erreur_report\").style.display=\"\";' >Cliquez ici pour plus d'information.</span><br />".$mailStatus."
 
-			<div id='erreur_report' style='display: none;'>".nl2br($rapport)."</div>";
-		}
+			// Message vers  le client
+			echo "<br /><br /><b>
+			SoothERP, fork du logiciel Lundi Matin Business<br />
+			Une erreur critique a été détectée.
+			<br /><br />"
+			.$mailStatus.
+			"<br /><br />
+			Vous pouvez utilement faire avancer le projet SoothERP en complétant un rapport de bug sur le <a href='https://bugs.sootherp.fr' target='_blank'>bug tracker SoothERP</a></b><br/> <span id='view_rapport' style='cursor: pointer;'";
+			
+			// Création d'un log, entre balises php pour en éviter la possibilité d'affichage par un navigateur
+			$errorlog = "<?php \n/*";
+			$errorlog .= "\n\n###################################################################################################\n\n";
+			$errorlog .= "RAPPORT DE PLANTAGE \n\n";
+			$errorlog .= "\n\n".strip_tags($rapport)."\n\n";
+			$errorlog .= "ENVIRONNEMENT COMPLET :\n\n";
+			$errorlog .= date (" d/m/Y @ h:i:s")."\n\n";
+			$errorlog .= print_r(debug_backtrace() , true);
+			$errorlog .= "\n\nFIN DU RAPPORT DE PLANTAGE \n\n";
+			$errorlog .= "###################################################################################################\n\n";
+			$errorlog .= "*/\n?>\n";
+
+			$fp = fopen(__DIR__.'/log/error.log.php', 'w');
+			fwrite($fp, $errorlog);
+			fclose($fp);
+
 	}
 
 	exit();
