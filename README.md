@@ -33,7 +33,7 @@ N'hésitez pas à apporter vos contributions en forkant le projet.
   - Php 5.3 (extensions Zip et PDO)
   - MySQL 5 avec InnoDB
   - Firefox (avec Flash et Acrobat reader)
-* Télécharger [l'installeur Sooth ERP](http://www.groovyprog.com/?wpdmact=process&did=Ny5ob3RsaW5r)
+* Télécharger [l'installeur Sooth ERP](https://s3-eu-west-1.amazonaws.com/sootherp/soothERP_install_RC1.1_08052014.zip)
 * Extraire l'archive de l'installeur sur le serveur.
 * Pointez le navigateur à la racine du dossier extrait de l'archive, et suivez les instructions.
 
