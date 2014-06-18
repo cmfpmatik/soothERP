@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 // *************************************************************************************************************
 // FICHIER DE CONFIGURATION SPECIFIQUE AU PROFIL DE CLIENT [CLIENT]
 // *************************************************************************************************************
@@ -7,7 +7,7 @@
 // *************************************************************************************************************
 // INFORMATIONS CONCERNANT LES UTILISATEURS AYANT CE PROFIL
 // *************************************************************************************************************
-$CLIENT_ID_THEME = 7;			// Thème par défaut 
+$CLIENT_ID_THEME = 7;			// ThÃ¨me par dÃ©faut 
 
 $DIR_CLIENT_TEMPLATE = ""; //si le profil client peu utiliser le "site" alors $DIR_CLIENT_TEMPLATE = $DIR.$PUBLIC_SITE_DIR
 

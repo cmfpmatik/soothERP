@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // FICHIER DE CONFIGURATION SPECIFIQUE AU PROFIL DE VISITEUR [VISITEUR]
 // *************************************************************************************************************
@@ -14,7 +14,7 @@
 // *************************************************************************************************************
 // INFORMATIONS CONCERNANT LES CONTACTS AYANT CE PROFIL
 // *************************************************************************************************************
-// Informations par d�faut concernant un Visiteur
+// Informations par défaut concernant un Visiteur
 // TOUT UTILISATEUR EST AU MOINS VISITEUR !!
 
 
