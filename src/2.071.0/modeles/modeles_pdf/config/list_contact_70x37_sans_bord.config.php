@@ -1,4 +1,4 @@
-<?PHP 
+﻿<?PHP 
 $CONFIGURATION=0;
 
 

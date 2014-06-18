@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 $_PAGE['MUST_BE_LOGIN'] = 0;
 require ("_dir.inc.php");
 require ("_profil.inc.php");
@@ -14,7 +14,7 @@ else {
 }
 
 function print_plain() {
-  header("Content-type: text/html; charset=windows-1252");
+  header("Content-type: text/html; charset=utf8");
   get_communes(str_replace(" ", "",$_REQUEST["cp"]));
   
 }
@@ -29,11 +29,11 @@ function get_communes($cp) {
 				WHERE `code_postal` LIKE '%$cp%'";
 		$req 	= $bdd->query ($sql );
 	
-	// on boucle sur tous les éléments
+	// on boucle sur tous les Ã©lÃ©ments
 	while ($row = $req->fetchObject()) { $citys[] = $row; }
 		$i=0;
 		if (count($citys)>0){
-			echo '<a href="#" id="supprime_'.$_REQUEST["choix_ville"].'" style="float: right;"><img src="'.$DIR.$_SESSION['theme']->getDir_theme().'images/supprime.gif" border="0"></a>';
+			echo '<a href="#" id="supprime_'.$_REQUEST["choix_ville"].'" style="float: right;"><img src="'.$DIR.$_SESSION['theme']->getDir_gtheme().'images/supprime.gif" border="0"></a>';
 			echo '<ul class="complete_ville" style="width:250px">'; 
 			foreach ($citys as $city) {
 				if ($i < $NB_VILLES_AFFICHEES) {

@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
 <title>PHPMailer - Sendmail advanced test</title>
 </head>

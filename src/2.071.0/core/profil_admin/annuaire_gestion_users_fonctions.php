@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // GESTION DES ROLES DES COLLABORATEURS
 // *************************************************************************************************************
@@ -9,7 +9,7 @@ require ("_profil.inc.php");
 require ($DIR."_session.inc.php");
 require ($DIR.$_SESSION['theme']->getDir_theme()."_theme.config.php" );
 
-// Pr�parations des variables d'affichage
+// Préparations des variables d'affichage
 $liste_fonctions = charger_fonctions ($COLLAB_ID_PROFIL);
 $liste_permissions = charger_permissions ($COLLAB_ID_PROFIL);
 

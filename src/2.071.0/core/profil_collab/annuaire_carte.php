@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // [ADMINISTRATEUR] AFFICHAGE D'UNE FICHE D'ADRESSE
 // *************************************************************************************************************
@@ -34,7 +34,7 @@ $adresse_complete = str_replace("\n", " ", $adresse->getText_adresse())." ".$adr
 <html>
 	<head>
 		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Plan</title>
 	</head>
 <body>

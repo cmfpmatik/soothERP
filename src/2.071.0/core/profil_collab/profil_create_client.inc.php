@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 	// bac 19/04/2010 version 2.051
 	$infos_profils[$id_profil]['id_client_categ'] 			=  $_REQUEST['id_client_categ'];

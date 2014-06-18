@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // GESTION DES NEWSLETTERS
 // *************************************************************************************************************
@@ -9,7 +9,7 @@ require ("_profil.inc.php");
 require ($DIR."_session.inc.php");
 
 
-//variable n�cessaires aux newsletter
+//variable nécessaires aux newsletter
 $newsletters = charger_newsletters();
 
 

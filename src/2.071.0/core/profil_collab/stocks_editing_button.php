@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // AAFFICHAGE DE L'EDITION D'UN DOCUMENT (partie boutons)
 // *************************************************************************************************************
@@ -9,7 +9,7 @@ require ("_profil.inc.php");
 require ($DIR."_session.inc.php");
 
 
-//chargement des modes d'�dition
+//chargement des modes d'édition
 $editions_modes	= liste_mode_edition();
 
 $liste_modeles_pdf_valides = stock::charge_modele_pdf();

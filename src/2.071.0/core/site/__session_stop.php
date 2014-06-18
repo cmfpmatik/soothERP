@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $DIR = "../";
 if(!session_id()) {session_start(); }
 

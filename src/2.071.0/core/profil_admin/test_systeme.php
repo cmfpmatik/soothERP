@@ -1,23 +1,28 @@
-<?php
+﻿<?php
 /* **************************************************************************************************
-************    TEST DE LA COMPATIBILITE DU SYSTEME AVEC LMB   **************************************
+************    TEST DE LA COMPATIBILITE DU SYSTEME AVEC SoothERP   **************************************
 ****************************************************************************************************/
 ini_set ("session.cookie_lifetime", 86400) ;
+
+
 if(!session_id()) {session_start(); }
 
-header('Content-type: text/html; charset=iso-8859-15');
+//header('Content-type: text/html; charset=utf8');
 require ("_dir.inc.php");
-
-// neregistrement des erreurs dans un tableau 
+require ("_profil.inc.php");
+require ($DIR."_session.inc.php");
+// enregistrement des erreurs dans un tableau 
 $GLOBALS['_INFOS']['test_systeme'] = array();
 $GLOBALS['_INFOS']['test_systeme_non_bloquant'] = array();
+
+global $CONFIG_DIR;
 
 if (!isset($_SESSION['TEST_SYSTEME']) || !$_SESSION['TEST_SYSTEME']) {
 	// ETAPE 1: VERIFICATION DE LA CONFIGURATION DE PHP
 		$retour_texte = "TEST DE VOTRE CONFIGURATION PHP<br><br>";
 	
 	for ($i=1; $i<=1; $i++) {
-		// V�rification de la version php 
+		// VÃ©rification de la version php 
 		if (version_compare(PHP_VERSION, '5.2.0') < 0) {
 			$retour_texte .= "Votre version de PHP est insuffisante. <br> Actuellement: ".PHP_VERSION." / Recquis: 5.2.0<br>";
 			$GLOBALS['_INFOS']['test_systeme'][] = "Votre version de PHP est insuffisante. <br> Actuellement: ".PHP_VERSION." / Recquis: 5.2.0<br>";
@@ -26,43 +31,43 @@ if (!isset($_SESSION['TEST_SYSTEME']) || !$_SESSION['TEST_SYSTEME']) {
 		$retour_texte .=  "Version de PHP suffisante: Actuellement: ".PHP_VERSION." / Requis: 5.2.0<br>";
 
 	
-		// Test de la pr�sence de la librairie GD
+		// Test de la prÃ©sence de la librairie GD
 		if (!@extension_loaded('gd')) {
-			$retour_texte .=  "	La biblioth�que GD doit �tre install�e.<br>";
-			$GLOBALS['_INFOS']['test_systeme'][] = "La biblioth�que GD doit �tre install�e.<br>";
+			$retour_texte .=  "	La bibliothÃ¨que GD doit Ãªtre installÃ©e.<br>";
+			$GLOBALS['_INFOS']['test_systeme'][] = "La bibliothÃ¨que GD doit Ãªtre installÃ©e.<br>";
 			break;
 		}
-		$retour_texte .=   "La biblioth�que GD est install�e.<br>";
+		$retour_texte .=   "La bibliothÃ¨que GD est installÃ©e.<br>";
 	
 	
-		// Test de la disponibilit� de la fonction fopen()
+		// Test de la disponibilitÃ© de la fonction fopen()
 		if (!@fopen("./test_systeme.php", "r")) {
-			$retour_texte .=   " La fonction PHP fopen() est d�sactiv�e sur ce serveur.<br>";
-			$GLOBALS['_INFOS']['test_systeme'][] = "La fonction PHP fopen() est d�sactiv�e sur ce serveur.<br>";
+			$retour_texte .=   " La fonction PHP fopen() est dÃ©sactivÃ©e sur ce serveur.<br>";
+			$GLOBALS['_INFOS']['test_systeme'][] = "La fonction PHP fopen() est dÃ©sactivÃ©e sur ce serveur.<br>";
 			break;
 		}
-		$retour_texte .=   "La fonction PHP fopen() est activ�e.<br>";
+		$retour_texte .=   "La fonction PHP fopen() est activÃ©e.<br>";
 	
 	
 		// Test du support XML
 		if (!@function_exists('xml_parser_create')) {
-			$retour_texte .=   " Le support XML est d�sactiv�e sur ce serveur.<br>";
-			$GLOBALS['_INFOS']['test_systeme'][] = "Le support XML est d�sactiv�e sur ce serveur.<br>";
+			$retour_texte .=   " Le support XML est dÃ©sactivÃ©e sur ce serveur.<br>";
+			$GLOBALS['_INFOS']['test_systeme'][] = "Le support XML est dÃ©sactivÃ©e sur ce serveur.<br>";
 			break;
 		}
 		$retour_texte .=   "Le serveur support XML.<br>";
 		
 		// Test de la configuration des Magic_quote
 		if (get_magic_quotes_gpc()) {
-			$retour_texte .=   " L'option MAGIC_QUOTES_GPC doit �tre d�sactiv� sur votre ce serveur. (non bloquant)<br>";
-			$GLOBALS['_INFOS']['test_systeme_non_bloquant'][] = "L'option MAGIC_QUOTES_GPC doit �tre d�sactiv� sur votre ce serveur. (non bloquant)<br>";
+			$retour_texte .=   " L'option MAGIC_QUOTES_GPC doit Ãªtre dÃ©sactivÃ© sur votre ce serveur. (non bloquant)<br>";
+			$GLOBALS['_INFOS']['test_systeme_non_bloquant'][] = "L'option MAGIC_QUOTES_GPC doit Ãªtre dÃ©sactivÃ© sur votre ce serveur. (non bloquant)<br>";
 		}
 		if (get_magic_quotes_runtime()) {
-			$retour_texte .=   " L'option MAGIC_QUOTES_RUNTIME doit �tre d�sactiv� sur votre ce serveur. (non bloquant)<br>";
-			$GLOBALS['_INFOS']['test_systeme_non_bloquant'][] = "L'option MAGIC_QUOTES_RUNTIME doit �tre d�sactiv� sur votre ce serveur. (non bloquant)<br>";
+			$retour_texte .=   " L'option MAGIC_QUOTES_RUNTIME doit Ãªtre dÃ©sactivÃ© sur votre ce serveur. (non bloquant)<br>";
+			$GLOBALS['_INFOS']['test_systeme_non_bloquant'][] = "L'option MAGIC_QUOTES_RUNTIME doit Ãªtre dÃ©sactivÃ© sur votre ce serveur. (non bloquant)<br>";
 		}
 		if (!get_magic_quotes_runtime() && !get_magic_quotes_gpc()) {
-			$retour_texte .=   "Les options Magic_quotes_gpc et Magic_quotes_runtime sont d�sactiv�es.<br>";
+			$retour_texte .=   "Les options Magic_quotes_gpc et Magic_quotes_runtime sont dÃ©sactivÃ©es.<br>";
 		}
 		
 		
@@ -76,14 +81,14 @@ if (!isset($_SESSION['TEST_SYSTEME']) || !$_SESSION['TEST_SYSTEME']) {
 	$retour_texte .= "<br><br><hr>
 	TEST DE VOS DROITS SUR LES FICHIERS ET DOSSIERS LOCAUX<br><br>";
 	
-		// Droits en lecture / �criture sur les fichiers et dossiers locaux
+		// Droits en lecture / Ã©criture sur les fichiers et dossiers locaux
 		$erreur = test_file_auth();	
 		if ($erreur) {
 			$retour_texte .= "".$erreur."<br>";
 			$GLOBALS['_INFOS']['test_systeme'][] = "".$erreur."<br>";
 			break;
 		}
-		$retour_texte .= "Les droits en lecture / �criture sont suffisants.<br>";
+		$retour_texte .= "Les droits en lecture / Ã©criture sont suffisants.<br>";
 		
 	
 	
@@ -99,13 +104,13 @@ if (!isset($_SESSION['TEST_SYSTEME']) || !$_SESSION['TEST_SYSTEME']) {
 	$retour_texte .= "<br><br><hr>
 	TEST DE VOTRE CONFIGURATION MYSQL<br><br>";
 	
-		// Test la pr�sence et la version de mysql
+		// Test la prÃ©sence et la version de mysql
 		if (!@extension_loaded('mysql')) {
-			$retour_texte .= "MySQL n'est pas install� sur votre serveur.<br>";
-			$GLOBALS['_INFOS']['test_systeme'][] = "MySQL n'est pas install� sur votre serveur.<br>";
+			$retour_texte .= "MySQL n'est pas installÃ© sur votre serveur.<br>";
+			$GLOBALS['_INFOS']['test_systeme'][] = "MySQL n'est pas installÃ© sur votre serveur.<br>";
 			break;
 		}
-		include ($DIR."config/config_bdd.inc.php");
+		include ($CONFIG_DIR."config_bdd.inc.php");
 		mysql_connect($bdd_hote, $bdd_user, $bdd_pass);
 		if (version_compare(mysql_get_server_info(), '5.0') < 0) {
 			$retour_texte .= "	Votre version de MySQL est insuffisante. <br>
@@ -114,69 +119,69 @@ if (!isset($_SESSION['TEST_SYSTEME']) || !$_SESSION['TEST_SYSTEME']) {
 					Actuellement: ".mysql_get_server_info()." / Recquis: 5.0<br>";
 			break;
 		}
-		$retour_texte .= "MySQL est pr�sent sur le serveur: Actuellement: ".mysql_get_server_info()." / Recquis: 5.0<br>";
+		$retour_texte .= "MySQL est prÃ©sent sur le serveur: Actuellement: ".mysql_get_server_info()." / Recquis: 5.0<br>";
 	
 	
-		// Test la pr�sence de la librairie PDO
+		// Test la prÃ©sence de la librairie PDO
 		if (!method_exists('PDO', 'exec')) {
-			$retour_texte .= "	La biblioth�que PDO/MySQL doit �tre install�e.<br>";
+			$retour_texte .= "	La bibliothÃ¨que PDO/MySQL doit Ãªtre installÃ©e.<br>";
 			$GLOBALS['_INFOS']['test_systeme'][] = "".$erreur."<br>";
 			break;
 		}
-		$retour_texte .= "La biblioth�que PDO/MySQL est install�e.<br>";	
+		$retour_texte .= "La bibliothÃ¨que PDO/MySQL est installÃ©e.<br>";	
 	
 	
 		// Test de la configuration de MySQL
-		include ($DIR."config/config_bdd.inc.php");
+		include ($CONFIG_DIR."config_bdd.inc.php");
 		try {
 			$bdd = new PDO("mysql:host=".$bdd_hote."; dbname=".$bdd_base."", $bdd_user, $bdd_pass, NULL);
 		} catch (Exception $e) {
-			$retour_texte .= "Les param�tres de connexion � la base de donn�es sont incorrects<br />";
-			$GLOBALS['_INFOS']['test_systeme'][] = "Les param�tres de connexion � la base de donn�es sont incorrects<br />";
+			$retour_texte .= "Les paramÃ¨tres de connexion Ã  la base de donnÃ©es sont incorrects<br />";
+			$GLOBALS['_INFOS']['test_systeme'][] = "Les paramÃ¨tres de connexion Ã  la base de donnÃ©es sont incorrects<br />";
 			break;
 		}
-		$retour_texte .= "Les param�tres d'acc�s � la base de donn�es sont corrects.<br>";
+		$retour_texte .= "Les paramÃ¨tres d'accÃ¨s Ã  la base de donnÃ©es sont corrects.<br>";
 	
 	
-		// Test des droits sur la base de donn�es
+		// Test des droits sur la base de donnÃ©es
 		$query = "CREATE TABLE IF NOT EXISTS `table_test` (`test` FLOAT NULL) ENGINE = innodb;";
 		$bdd->query($query);
 		$table_test_ok = mysql_table_exists($bdd, $bdd_base, "table_test");
 		if (!$table_test_ok) {
-			$retour_texte .= "Vos droits sur la base de donn�es ".$bdd_base." sont insuffisants. (Impossible de cr�er une table).<br />";
-			$GLOBALS['_INFOS']['test_systeme'][] = "Vos droits sur la base de donn�es ".$bdd_base." sont insuffisants. (Impossible de cr�er une table).<br />";
+			$retour_texte .= "Vos droits sur la base de donnÃ©es ".$bdd_base." sont insuffisants. (Impossible de crÃ©er une table).<br />";
+			$GLOBALS['_INFOS']['test_systeme'][] = "Vos droits sur la base de donnÃ©es ".$bdd_base." sont insuffisants. (Impossible de crÃ©er une table).<br />";
 			break;
 		}
 		$query = "DROP TABLE IF EXISTS `table_test`;";
 		$bdd->query($query);
 		$table_test_deleted = mysql_table_exists($bdd, $bdd_base, "table_test");
 		if ($table_test_deleted) {
-			$retour_texte .= "Vos droits sur la base de donn�es ".$bdd_base." sont insuffisants. (Impossible de supprimer une table).<br />";
-			$GLOBALS['_INFOS']['test_systeme'][] = "Vos droits sur la base de donn�es ".$bdd_base." sont insuffisants. (Impossible de supprimer une table).<br />";
+			$retour_texte .= "Vos droits sur la base de donnÃ©es ".$bdd_base." sont insuffisants. (Impossible de supprimer une table).<br />";
+			$GLOBALS['_INFOS']['test_systeme'][] = "Vos droits sur la base de donnÃ©es ".$bdd_base." sont insuffisants. (Impossible de supprimer une table).<br />";
 			break;
 		}
-		$retour_texte .= "Vous avez les droits n�cessaires sur la base de donn�es.<br>";
+		$retour_texte .= "Vous avez les droits nÃ©cessaires sur la base de donnÃ©es.<br>";
 	
 	
 	
 		
-	// ETAPE 4: V�rification du fonctionnement des emails
+	// ETAPE 4: VÃ©rification du fonctionnement des emails
 	$retour_texte .= "<br><br><hr>
 	TEST DU FONCTIONNEMENT DES MAILS<br><br>";
 	
 	// Initialisation de la variable $EMAIL_DEV pour test de mail
-	$CONFIG_DIR = $DIR."config/";
+	
 	require_once ($CONFIG_DIR."config_serveur.inc.php");
 	global $EMAIL_DEV;
 
-		// Test de la variable si nulle (i.e. non d�finie dans le fichier de config)
+		// Test de la variable si nulle (i.e. non dÃ©finie dans le fichier de config)
 		if (is_null($EMAIL_DEV)) {
-			$retour_texte .= "Le mail de test n'est pas param�tr�, veuillez contacter un administrateur pour configurer la variable \$EMAIL_DEV";
-			$retour_texte .= "La fonction Mail() n'a pu �tre test�e.";
-			$GLOBALS['_INFOS']['test_systeme_non_bloquant'][] = "La fonction Mail() n'a pu �tre test�e. (Non bloquant)";			}
-		// Si non nulle, test de l'envoi de mail � l'adresse d�finie
+			$retour_texte .= "Le mail de test n'est pas paramÃ¨trÃ©, veuillez contacter un administrateur pour configurer la variable \$EMAIL_DEV";
+			$retour_texte .= "La fonction Mail() n'a pu Ãªtre testÃ©e.";
+			$GLOBALS['_INFOS']['test_systeme_non_bloquant'][] = "La fonction Mail() n'a pu Ãªtre testÃ©e. (Non bloquant)";			}
+		// Si non nulle, test de l'envoi de mail Ã  l'adresse dÃ©finie
 		else if (@!mail($EMAIL_DEV, 'test', "test systeme")) {
-			$retour_texte .= "La fonction Mail() ne fonctionne pas. (Non bloquant mais n�cessite un param�trage)";
+			$retour_texte .= "La fonction Mail() ne fonctionne pas. (Non bloquant mais nÃ©cessite un paramï¿½trage)";
 			$GLOBALS['_INFOS']['test_systeme_non_bloquant'][] = "La fonction Mail() ne fonctionne pas. (Non bloquant)";
 		} else {
 			$retour_texte .= "L'envoi d'emails semble fonctionner.";
@@ -184,27 +189,27 @@ if (!isset($_SESSION['TEST_SYSTEME']) || !$_SESSION['TEST_SYSTEME']) {
 	
 	
 		
-	// ETAPE 5: Pr�sence des fichiers d'installation
+	// ETAPE 5: PrÃ©sence des fichiers d'installation
 	$retour_texte .= "<br><br><hr>
 	PRESENCE DES FICHIERS D'INSTALLATION<br><br>";
 	
-		if (is_file($DIR."install_lmb.php")) {
-			$retour_texte .= "Le fichier d'installation install_lmb.php est toujours pr�sent. (Non bloquant)";
-			$GLOBALS['_INFOS']['test_systeme_non_bloquant'][] = "Le fichier d'installation install_lmb.php est toujours pr�sent. (Non bloquant)
+		if (is_file($DIR."install/install.php")) {
+			$retour_texte .= "Le fichier d'installation install.php est toujours prÃ©sent. (Non bloquant)";
+			$GLOBALS['_INFOS']['test_systeme_non_bloquant'][] = "Le fichier d'installation install.php est toujours prÃ©sent. (Non bloquant)
 	";
 		}
-		if (is_file($DIR."install_lmb.config.php")) {
-			$retour_texte .= "Le fichier d'installation install_lmb.config.php est toujours pr�sent. (Non bloquant)";
-			$GLOBALS['_INFOS']['test_systeme_non_bloquant'][] = "Le fichier d'installation install_lmb.config.php est toujours pr�sent. (Non bloquant)";
+		if (is_file($DIR."install/process.php")) {
+			$retour_texte .= "Le fichier d'installation process.php est toujours prÃ©sent. (Non bloquant)";
+			$GLOBALS['_INFOS']['test_systeme_non_bloquant'][] = "Le fichier d'installation process.php est toujours prÃ©sent. (Non bloquant)";
 		}
-		if (!is_file($DIR."install_lmb.config.php") && !is_file($DIR."install_lmb.php")) {
-			$retour_texte .= "Les fichiers d'installation ont bien �t� supprim�s.";
+		if (!is_file($DIR."install/index.php") && !is_file($DIR."install/process.php")) {
+			$retour_texte .= "Les fichiers d'installation ont bien Ã©tÃ© supprimÃ©s.";
 		} 
 	
 		
 	
 		
-	// ETAPE 6: Pr�sence des fichiers principaux de l'application
+	// ETAPE 6: PrÃ©sence des fichiers principaux de l'application
 	$retour_texte .= "<br><br><hr>
 	PRESENCE DES FICHIERS DE FONCTION ET DE CLASSE<br><br>";
 	
@@ -212,29 +217,29 @@ if (!isset($_SESSION['TEST_SYSTEME']) || !$_SESSION['TEST_SYSTEME']) {
 		$compteur = 0;
 		foreach ($tab_files as $file) {
 			if (!is_file($DIR.$file)) {
-				$retour_texte .= "Le fichier suivant est absent de votre syst�me: ".$file." <br />";
-				$GLOBALS['_INFOS']['test_systeme'][] = "Le fichier suivant est absent de votre syst�me: ".$file." <br />";
+				$retour_texte .= "Le fichier suivant est absent de votre systÃ¨me: ".$file." <br />";
+				$GLOBALS['_INFOS']['test_systeme'][] = "Le fichier suivant est absent de votre systÃ¨me: ".$file." <br />";
 				$compteur++;
 			}
 		}
 		if (!$compteur) {
-			$retour_texte .= "Les fichiers syst�mes sont tous pr�sents.<br />";
+			$retour_texte .= "Les fichiers systÃ¨mes sont tous prÃ©sents.<br />";
 		}
 		
 		$tab_dirs = array("config", "documents", "fichiers", "modeles_pdf", "modules", "profil_admin", "profil_client", "profil_collab", "profil_fournisseur");
 		$compteur = 0;
 		foreach ($tab_dirs as $dir) {
 			if (!is_dir($DIR.$dir)) {
-				$retour_texte .= "Le dossier suivant est absent de votre syst�me: ".$dir." <br />";
-				$GLOBALS['_INFOS']['test_systeme'][] = "Le dossier suivant est absent de votre syst�me: ".$dir." <br />";
+				$retour_texte .= "Le dossier suivant est absent de votre systÃ¨me: ".$dir." <br />";
+				$GLOBALS['_INFOS']['test_systeme'][] = "Le dossier suivant est absent de votre systÃ¨me: ".$dir." <br />";
 				$compteur++;
 			}
 		}
 		if (!$compteur) {
-			$retour_texte .= "Les dossiers syst�mes sont tous pr�sents.<br />";
+			$retour_texte .= "Les dossiers systÃ¨mes sont tous prÃ©sents.<br />";
 		}
 	
-	// ETAPE 7: Pr�sence des tables principales de l'application
+	// ETAPE 7: PrÃ©sence des tables principales de l'application
 	$retour_texte .= "<br><br><hr>
 	PRESENCE DES TABLES DE LA BASE DE DONNEES<br><br>";
 	
@@ -242,13 +247,13 @@ if (!isset($_SESSION['TEST_SYSTEME']) || !$_SESSION['TEST_SYSTEME']) {
 		$compteur = 0;
 		foreach ($tab_sql as $table) {
 			if (!mysql_table_exists($bdd, $bdd_base, $table)) {
-				$retour_texte .= "La table suivante est absente de votre base de donn�es: ".$table." <br />";
-				$GLOBALS['_INFOS']['test_systeme'][] = "La table suivante est absente de votre base de donn�es: ".$table." <br />";
+				$retour_texte .= "La table suivante est absente de votre base de donnÃ©es: ".$table." <br />";
+				$GLOBALS['_INFOS']['test_systeme'][] = "La table suivante est absente de votre base de donnÃ©es: ".$table." <br />";
 				$compteur++;
 			}
 		}
 		if (!$compteur) {
-			$retour_texte .= "Toutes les tables sont pr�sentes.<br />";
+			$retour_texte .= "Toutes les tables sont prÃ©sentes.<br />";
 		}
 		
 		
@@ -256,13 +261,13 @@ if (!isset($_SESSION['TEST_SYSTEME']) || !$_SESSION['TEST_SYSTEME']) {
 		$compteur = 0;
 		foreach ($tab_sql_count as $table_count) {
 			if (!mysql_table_count_line($bdd, $table_count[0], $table_count[1])) {
-				$retour_texte .= "Des donn�es sont manquantes dans la table suivante: ".$table_count[0]." <br />";
-				$GLOBALS['_INFOS']['test_systeme'][] = "Des donn�es sont manquantes dans la table suivante: ".$table_count[0]." <br />";
+				$retour_texte .= "Des donnÃ©es sont manquantes dans la table suivante: ".$table_count[0]." <br />";
+				$GLOBALS['_INFOS']['test_systeme'][] = "Des donnÃ©es sont manquantes dans la table suivante: ".$table_count[0]." <br />";
 				$compteur++;
 			}
 		}
 		if (!$compteur) {
-			$retour_texte .= "Toutes les tables poss�dent les informations minimales.<br />";
+			$retour_texte .= "Toutes les tables possedent les informations minimales.<br />";
 		}
 		
 	}
@@ -295,43 +300,43 @@ function mysql_table_count_line($bdd, $table, $count_line){
 
 
 	
-// V�rification des droits en �criture local
+// VÃ©rification des droits en Ã©criture local
 function test_file_auth() {
 	
-	// Cr�ation d'un fichier test
+	// Crï¿½ation d'un fichier test
 	$test_file = @fopen("lmb_test.txt","w");
 	@fclose($test_file);
 	// Test de son existence
 	if (!is_file("lmb_test.txt")) {
-		return ("Droits en �criture insuffisants sur le dossier racine (Impossible de cr�er le fichier de test.)");
+		return ("Droits en Ã©criture insuffisants sur le dossier racine (Impossible de crÃ©er le fichier de test.)");
 	}
 
 	// Suppression du fichier de test
 	@unlink("lmb_test.txt");
 	if (is_file("lmb_test.txt")) {
-		return ("Droits en �criture insuffisants sur le dossier racine (Impossible de supprimer le fichier de test.)");
+		return ("Droits en Ã©criture insuffisants sur le dossier racine (Impossible de supprimer le fichier de test.)");
 	}
 
-	// Cr�ation d'un dossier de test
+	// CrÃ©ation d'un dossier de test
 	if (!@mkdir("lmb_test", 0777)) {
-		return ("Droits en �criture insuffisants sur le dossier racine (Impossible de cr�er le dossier de test.)");
+		return ("Droits en Ã©criture insuffisants sur le dossier racine (Impossible de crÃ©er le dossier de test.)");
 	}
 
-	// Cr�ation et suppression d'un fichier dans le dossier
+	// CrÃ©ation et suppression d'un fichier dans le dossier
 	$test_file = @fopen("lmb_test/lmb_test.txt","w");
 	@fclose($test_file);	
 	if (!is_file("lmb_test/lmb_test.txt")) {
-		return ("Droits en �criture insuffisants sur le dossier racine (Impossible de cr�er un fichier sur le dossier de test.)");
+		return ("Droits en Ã©criture insuffisants sur le dossier racine (Impossible de crÃ©er un fichier sur le dossier de test.)");
 	}
 	@unlink("lmb_test/lmb_test.txt");
 	if (is_file("lmb_test/lmb_test.txt")) {
-		return ("Droits en �criture insuffisants sur le dossier racine (Impossible de supprimer un fichier sur le dossier de test.)");
+		return ("Droits en Ã©criture insuffisants sur le dossier racine (Impossible de supprimer un fichier sur le dossier de test.)");
 	}
 
 	// Suppression du dossier
 	@rmdir("lmb_test");
 	if (is_dir("lmb_test")) {
-		return ("Droits en �criture insuffisants sur le dossier racine (Impossible de supprimer le dossier de test.)");
+		return ("Droits en Ã©criture insuffisants sur le dossier racine (Impossible de supprimer le dossier de test.)");
 	}
 
 	return "";
@@ -343,31 +348,31 @@ if (!count($GLOBALS['_INFOS']['test_systeme']) && !count($GLOBALS['_INFOS']['tes
 
 if (!count($GLOBALS['_INFOS']['test_systeme'])) {
 	?>
-	<span style="float:left; padding-right:20px"><img src="themes/admin_fr/images/ico_valide.png" /></span>Votre syst&egrave;me est compatible avec l'application.<br />
+	<span style="float:left; padding-right:20px"><img src="<?php echo $DIR.$_SESSION['theme']->getDir_gtheme()?>images/ico_valide.png" /></span>Votre syst&egrave;me est compatible avec l'application.<br />
 <br />
 	<?php
 	foreach ($GLOBALS['_INFOS']['test_systeme_non_bloquant'] as $erreur_test_non_bloquant) {
 		?>
-		<span style="float:left; padding-right:20px"><img src="themes/admin_fr/images/blank.gif" width="22px" /></span><em style="color:#FF0000"><?php echo ($erreur_test_non_bloquant)?></em><br />
+		<span style="float:left; padding-right:20px"><img src="<?php echo $DIR.$_SESSION['theme']->getDir_gtheme()?>images/blank.gif" width="22px" /></span><em style="color:#FF0000"><?php echo ($erreur_test_non_bloquant)?></em><br />
 		<?php
 	}
 } else {
 	?>
-	<span style="float:left; padding-right:20px"><img src="themes/admin_fr/images/ico_unvalide.png" /></span>Votre syst&egrave;me est incompatible avec l'application.<br /><br />
+	<span style="float:left; padding-right:20px"><img src="<?php echo $DIR.$_SESSION['theme']->getDir_gtheme()?>images/ico_unvalide.png" /></span>Votre syst&egrave;me est incompatible avec l'application.<br /><br />
 	<?php
 	foreach ($GLOBALS['_INFOS']['test_systeme'] as $erreur_test) {
 		?>
-		<span style="float:left; padding-right:20px"><img src="themes/admin_fr/images/blank.gif" width="22px" /></span><em style="color:#FF0000"><?php echo ($erreur_test);?></em><br />
+		<span style="float:left; padding-right:20px"><img src="<?php echo $DIR.$_SESSION['theme']->getDir_gtheme()?>images/blank.gif" width="22px" /></span><em style="color:#FF0000"><?php echo ($erreur_test);?></em><br />
 		<?php
 	}
 	
 	foreach ($GLOBALS['_INFOS']['test_systeme_non_bloquant'] as $erreur_test_non_bloquant) {
 		?>
-		<span style="float:left; padding-right:20px"><img src="themes/admin_fr/images/blank.gif" width="22px" /></span><em style="color:#FF0000"><?php echo ($erreur_test_non_bloquant)?></em><br />
+		<span style="float:left; padding-right:20px"><img src="<?php echo $DIR.$_SESSION['theme']->getDir_gtheme()?>images/blank.gif" width="22px" /></span><em style="color:#FF0000"><?php echo ($erreur_test_non_bloquant)?></em><br />
 		<?php
 	}
 	?>
-	<span style="float:left; padding-right:20px"><img src="themes/admin_fr/images/blank.gif" width="22px" /></span><span id="aff_rapport" style="cursor:pointer; text-decoration:underline;" >Voir le rapport de test</span><br />
+	<span style="float:left; padding-right:20px"><img src="<?php echo $DIR.$_SESSION['theme']->getDir_gtheme()?>images/blank.gif" width="22px" /></span><span id="aff_rapport" style="cursor:pointer; text-decoration:underline;" >Voir le rapport de test</span><br />
 	<div style="display:none; padding-left:42px; font-weight:bolder" id="rapport_text"><?php echo $retour_texte;?></div>
 	<script type="text/javascript">
 		Event.observe("aff_rapport", "click", function() {$("rapport_text").show();}, false);

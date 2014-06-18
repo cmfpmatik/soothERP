@@ -1,4 +1,4 @@
-The .sql files in this directory contain the code to create the tables for database caching.
+﻿The .sql files in this directory contain the code to create the tables for database caching.
 
 If you're not using database caching, you can safely ignore these.
 

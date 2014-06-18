@@ -1,4 +1,4 @@
-<?PHP 
+﻿<?PHP 
 // *************************************************************************************************************
 // CLASSE DE GENERATION DE L'ETAT DES STOCKS PDF - 
 // *************************************************************************************************************
@@ -9,8 +9,8 @@ class pdf_stock_etat extends PDF_etendu {
 	
 	var $nb_stock_supporter = 1;
 
-	var $stock;					// stock � imprimer
-	var $fiches;						// Contenu du document � imprimer
+	var $stock;					// stock ï¿½ imprimer
+	var $fiches;						// Contenu du document ï¿½ imprimer
 	var $id_stock;
 	var $lib_stock;
 	var $date_impression;
@@ -68,7 +68,7 @@ public function create_pdf ($id_stock, $fiches, $infos) {
 	//**********************************************************
 	$this->nb_stocks = count($id_stock);
 	if($this->nb_stocks > $this->nb_stock_supporter){ 
-		echo 'Le nombre de stocks � afficher est sup�rieur au nombre de stocks affichable par le model.';
+		echo 'Le nombre de stocks à afficher est supérieur au nombre de stocks affichable par le model.';
 		return false;
 	}
 	
@@ -97,7 +97,7 @@ public function create_pdf ($id_stock, $fiches, $infos) {
 	// Initialisation des variables
 	$this->nb_pages					= 1;
 	$this->contenu_actuel 	= 0;					// Ligne du document en cours de traitement
-	$this->contenu_end_page = array();		// Lignes de contenu terminant les diff�rentes pages
+	$this->contenu_end_page = array();		// Lignes de contenu terminant les diffï¿½rentes pages
 	$this->page_actuelle		= 0;
 	$this->content_printed	= 0;
 	$this->current_ref_art_categ = "";
@@ -109,7 +109,7 @@ public function create_pdf ($id_stock, $fiches, $infos) {
 	$this->totaux_generaux_prix = 0;
 
 	// ***************************************************
-	// Valeurs par d�faut
+	// Valeurs par dï¿½faut
 	foreach ($ETAT_STOCK as $var => $valeur) {
 		$this->{$var} = $valeur;
 	}
@@ -165,7 +165,7 @@ public function create_pdf ($id_stock, $fiches, $infos) {
         }
         
 	// ***************************************************
-	// Comptage du nombre de page n�cessaires
+	// Comptage du nombre de page nï¿½cessaires
 	$hauteur_totale = 0;
 	for ($i=0; $i<count($this->contenu); $i++) {
 
@@ -185,7 +185,7 @@ public function create_pdf ($id_stock, $fiches, $infos) {
                 }else{
                     $hauteur_ligne = $this->HAUTEUR_LINE_ARTICLE;
                 }
-		// V�rification de la n�cessit� de changer de page
+		// Vï¿½rification de la nï¿½cessitï¿½ de changer de page
 		$hauteur_totale += $hauteur_ligne;
 		if ($hauteur_totale >= $this->CORPS_HAUTEUR_MAX) {
 			
@@ -200,7 +200,7 @@ public function create_pdf ($id_stock, $fiches, $infos) {
 
 	$this->current_ref_art_categ = "";
 	// ***************************************************
-	// Cr�ation de la premi�re page
+	// Crï¿½ation de la premiï¿½re page
 	$this->create_pdf_page ();
 
 
@@ -208,12 +208,12 @@ public function create_pdf ($id_stock, $fiches, $infos) {
 }
 
 
-// Cr�� une nouvelle page du document PDF
+// Crï¿½ï¿½ une nouvelle page du document PDF
 protected function create_pdf_page () {
 	// Comptage du nombre de page
 	$this->page_actuelle++;
 
-	// Cr�ation d'une nouvelle page
+	// Crï¿½ation d'une nouvelle page
 	$this->AddPage();
 	$this->create_pdf_entete ();
 	$this->create_pdf_corps ();
@@ -226,7 +226,7 @@ protected function create_pdf_page () {
 }
 
 
-// Cr�� l'entete du document PDF
+// Crï¿½ï¿½ l'entete du document PDF
 protected function create_pdf_entete () {
 	global $IMAGES_DIR;
 
@@ -241,7 +241,7 @@ protected function create_pdf_entete () {
 	$this->Cell (95, 10, $this->lib_type_printed, 0, 0, 'L');
 
 	// ***************************************************
-	// R�f�rence du stock
+	// Rï¿½fï¿½rence du stock
 	$this->SetXY($this->MARGE_GAUCHE+1, 27);
 	$this->SetFont('Arial', '', 8);
 	$stock_lib = "Stock";
@@ -264,14 +264,14 @@ protected function create_pdf_entete () {
 
 
 
-// Cr�� le corps du PDF
+// Crï¿½ï¿½ le corps du PDF
 protected function create_pdf_corps () {
 
 	$this->decalage_corps_actuel	= 0;
 
 
 	// ***************************************************
-	// Num�ro de page
+	// Numï¿½ro de page
 	$this->SetXY(-45, $this->CORPS_HAUTEUR_DEPART - 6);
 	$this->SetFont('Arial', 'I', 8);
 	$page_lib = "Page ".$this->page_actuelle." / ".$this->nb_pages;
@@ -352,7 +352,7 @@ protected function create_pdf_corps () {
                     break;
             }
 
-            // Controle de la n�cessit� de changer de page
+            // Controle de la nï¿½cessitï¿½ de changer de page
             if (in_array($i, $this->contenu_end_page)) { break;	}
         }
 	
@@ -369,7 +369,7 @@ protected function create_pdf_corps () {
 		$this->create_pdf_corps_line($line);
 	}			
 
-	// Faire d�cendre le tableau jusqu'en bas du corps
+	// Faire dï¿½cendre le tableau jusqu'en bas du corps
 	while ($this->decalage_corps_actuel <= $this->CORPS_HAUTEUR_MAX-1) {
 		$line = new stdClass();
 		$this->create_pdf_corps_line($line);
@@ -384,7 +384,7 @@ protected function create_pdf_corps_line ($line) {
 	global $MONNAIE;
 
 	// ***************************************************
-	// Valeurs par d�faut
+	// Valeurs par dï¿½faut
 	if (!isset($line->type_of_line)) 	{ $line->type_of_line = "vide"; 	}
 	if (!isset($line->ref_article)) 	{ $line->ref_article = ""; 			}
 	if (!isset($line->lib_article)) 	{ $line->lib_article = ""; 			}
@@ -398,9 +398,9 @@ protected function create_pdf_corps_line ($line) {
 	// Cadre
 	$cadre = 0; // Gauche et droite
 
-	// Positionnement au d�but de la ligne
+	// Positionnement au dï¿½but de la ligne
 	$this->SetXY($this->MARGE_GAUCHE, $this->CORPS_HAUTEUR_DEPART + $this->decalage_corps_actuel);
-	// Style d'�criture par d�faut
+	// Style d'ï¿½criture par dï¿½faut
 	$this->SetFont('Arial', '', 9);
 	
 	$pt_float = 0;
@@ -418,7 +418,7 @@ protected function create_pdf_corps_line ($line) {
 	$hauteur = $this->{"HAUTEUR_LINE_".strtoupper($line->type_of_line)};
 	$this->decalage_corps_actuel += $hauteur;
 
-	// Sp�cifit�s � l'affichage
+	// Spï¿½cifitï¿½s ï¿½ l'affichage
 	switch ($line->type_of_line) {
 		case "article":
 			// Traitement pour les lignes trops longues
@@ -462,9 +462,9 @@ protected function create_pdf_corps_line ($line) {
 			$this->SetFont('Arial', 'I', 9);
 				$cadre = "LRBT";
 				if ($this->aff_prix) {
-				$texte_totaux = "".$this->totaux_articles." articles (".qte_format($this->totaux_pieces)." pi�ces) ".price_format($this->totaux_prix)." ".$MONNAIE[0]." HT";
+				$texte_totaux = "".$this->totaux_articles." articles (".qte_format($this->totaux_pieces)." pièces) ".price_format($this->totaux_prix)." ".$MONNAIE[0]." HT";
 				} else {
-				$texte_totaux = "".$this->totaux_articles." articles (".qte_format($this->totaux_pieces)." pi�ces) ";
+				$texte_totaux = "".$this->totaux_articles." articles (".qte_format($this->totaux_pieces)." pièces) ";
 				}
 				
 			$this->Cell($this->LARGEUR_TOTALE_CORPS, $hauteur, $texte_totaux, $cadre, 0, 'R');
@@ -473,9 +473,9 @@ protected function create_pdf_corps_line ($line) {
 			$this->SetFont('Arial', 'I', 9);
 				$cadre = "LRBT";
 				if ($this->aff_prix) {
-				$texte_totaux = "TOTAL GENERAL: ".$this->totaux_generaux_articles." articles (".qte_format($this->totaux_generaux_pieces)." pi�ces) ".price_format($this->totaux_generaux_prix)." ".$MONNAIE[0]." HT";
+				$texte_totaux = "TOTAL GENERAL: ".$this->totaux_generaux_articles." articles (".qte_format($this->totaux_generaux_pieces)." pièces) ".price_format($this->totaux_generaux_prix)." ".$MONNAIE[0]." HT";
 				} else {
-				$texte_totaux = "TOTAL GENERAL: ".$this->totaux_generaux_articles." articles (".qte_format($this->totaux_generaux_pieces)." pi�ces) ";
+				$texte_totaux = "TOTAL GENERAL: ".$this->totaux_generaux_articles." articles (".qte_format($this->totaux_generaux_pieces)." pièces) ";
 				}
 				
 			$this->Cell($this->LARGEUR_TOTALE_CORPS, $hauteur, $texte_totaux, $cadre, 0, 'R');
@@ -513,7 +513,7 @@ protected function create_pdf_texte_corps_pieds () {
 protected function create_pdf_pieds () {
 	global $MONNAIE;
 
-	// Information soci�t�
+	// Information sociï¿½tï¿½
 	$this->SetXY($this->MARGE_GAUCHE, $this->PIEDS_HAUTEUR_DEPART + $this->PIEDS_HAUTEUR_MAX + 1);
 	foreach ($this->PIEDS_GAUCHE as $texte) {
 		$this->Cell ($this->LARGEUR_TOTALE_CORPS, 4.5, $texte, '0', 2, 'L');

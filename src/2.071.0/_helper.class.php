@@ -1,27 +1,27 @@
-<?php
+ï»¿<?php
 
 class Helper {
 
 	/*
-	 * Filtres "id=untruc,unautretruc, ...;actif=truc1,truc2;lib=libellé1,libellé2"
+	 * Filtres "id=untruc,unautretruc, ...;actif=truc1,truc2;lib=libellÃ©1,libellÃ©2"
 	 */
     public static function createInputAnnu($id, $defaultText="", $params = array()) {
         global $DIR;
         if(!isset($params['callback']))
         //Mise a jour simple des champs
             $params['callback'] = "update_field_anu";
-        //Par défaut affichage de tous les profil sauf Visiteur 
+        //Par dÃ©faut affichage de tous les profil sauf Visiteur 
         if(!isset($params['filtres']))
             $params['filtres'] = "actif=1,2";
 
         $html = Helper::createSelectPopup($id, $defaultText)."\n";
         $html .= '<script type="text/javascript">
 			//effet de survol sur le faux select
-			Event.observe(\''.$id.'_select_c\', \'mouseover\',  function(){$("'.$id.'_select_c").src="'.$DIR.$_SESSION['theme']->getDir_theme().'images/bt_contact_find_hover.gif";}, false);
-			Event.observe(\''.$id.'_select_c\', \'mousedown\',  function(){$("'.$id.'_select_c").src="'.$DIR.$_SESSION['theme']->getDir_theme().'images/bt_contact_find_down.gif";}, false);
-			Event.observe(\''.$id.'_select_c\', \'mouseup\',  function(){$("'.$id.'_select_c").src="'.$DIR.$_SESSION['theme']->getDir_theme().'images/bt_contact_find.gif";}, false);
+			Event.observe(\''.$id.'_select_c\', \'mouseover\',  function(){$("'.$id.'_select_c").src="'.$DIR.$_SESSION['theme']->getDir_gtheme().'images/bt_contact_find_hover.gif";}, false);
+			Event.observe(\''.$id.'_select_c\', \'mousedown\',  function(){$("'.$id.'_select_c").src="'.$DIR.$_SESSION['theme']->getDir_gtheme().'images/bt_contact_find_down.gif";}, false);
+			Event.observe(\''.$id.'_select_c\', \'mouseup\',  function(){$("'.$id.'_select_c").src="'.$DIR.$_SESSION['theme']->getDir_gtheme().'images/bt_contact_find.gif";}, false);
 
-			Event.observe(\''.$id.'_select_c\', \'mouseout\',  function(){$("'.$id.'_select_c").src="'.$DIR.$_SESSION['theme']->getDir_theme().'images/bt_contact_find.gif";}, false);
+			Event.observe(\''.$id.'_select_c\', \'mouseout\',  function(){$("'.$id.'_select_c").src="'.$DIR.$_SESSION['theme']->getDir_gtheme().'images/bt_contact_find.gif";}, false);
 			
 			/*utilisation de la fonctio daffichage du mini moteur de recherche dun contact show_mini_moteur_contacts*/
 			/*syntaxe des filtres : "lib=val1,val2,val3;actif=val1;id=val1,val2"*/
@@ -55,10 +55,10 @@ class Helper {
                             </span>
                         </td>
                         <td style="text-align:right;padding-left:3px;">
-                            <img src="'.$DIR.$_SESSION['theme']->getDir_theme().'images/bt_contact_find.gif" class="clic" id="'.$id.'_select_c">
+                            <img src="'.$DIR.$_SESSION['theme']->getDir_gtheme().'images/bt_contact_find.gif" class="clic" id="'.$id.'_select_c">
                         </td>
                         <td>
-                            <img src="'.$DIR.$_SESSION['theme']->getDir_theme().'images/supprime.gif" class="clic" id="'.$id.'_empty_c">
+                            <img src="'.$DIR.$_SESSION['theme']->getDir_gtheme().'images/supprime.gif" class="clic" id="'.$id.'_empty_c">
                         </td>
                     </tr>
 		</table>';
@@ -74,7 +74,7 @@ class Helper {
      * $options["drag"] = true|false
      * $options["style_popup"] = 'style=width:50%' etc...
      * $options["forced"] = true|false
-     * @param <type> $content contenu de la popup (vide par défaut, puis appel à page.traitecontent()
+     * @param <type> $content contenu de la popup (vide par dÃ©faut, puis appel Ã  page.traitecontent()
      * @return <type> 
      */
     public static function createPopup($id, $options=array(), $content=""){
@@ -92,7 +92,7 @@ class Helper {
         $html='<div id="'.$id.'" class="popup" '.$style_popup.'>
             <div id="'.$id.'_bar" class="headbar">
                 <span id="link_close_'.$id.'" style="float:right" class="clic">
-                    <img src="'.$DIR.$_SESSION['theme']->getDir_theme().'images/supprime.gif" border="0">
+                    <img src="'.$DIR.$_SESSION['theme']->getDir_gtheme().'images/supprime.gif" border="0">
                 </span>
                 <script type="text/javascript">
                     Event.observe("link_close_'.$id.'", "click",  function(evt){Event.stop(evt); $("'.$id.'").hide();}, false);';

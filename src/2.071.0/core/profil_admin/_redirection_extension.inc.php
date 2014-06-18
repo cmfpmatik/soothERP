@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 $DIR_EXTENSION = "plus/";
 

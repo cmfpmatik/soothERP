@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Copyright (c) 2010-2012 [Ryan Parman](http://ryanparman.com)
  * Copyright (c) 2012 Amazon.com, Inc. or its affiliates.

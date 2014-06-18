@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class scatter_line
 {

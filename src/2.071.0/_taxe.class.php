@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 // *************************************************************************************************************
 // CLASSE REGISSANT LES INFORMATIONS SUR UNE TAXE 
@@ -16,23 +16,23 @@ final class taxe {
     function __construct($id_taxe = 0) {
         global $bdd;
 
-        // Controle si l'Id_taxe est précisé
+        // Controle si l'Id_taxe est prÃ©cisÃ©
         if (!$id_taxe) {
             return false;
         }
 
-        // Sélection des informations générales
+        // SÃ©lection des informations gÃ©nÃ©rales
         $query = "SELECT id_taxe, lib_taxe, id_pays, code_taxe, info_calcul
 						FROM taxes
 						WHERE id_taxe = '" . $id_taxe . "' ";
         $resultat = $bdd->query($query);
 
-        // Controle si l'Id_taxe est trouvé
+        // Controle si l'Id_taxe est trouvÃ©
         if (!$taxe = $resultat->fetchObject()) {
             return false;
         }
 
-        // Attribution des informations à l'objet
+        // Attribution des informations Ã  l'objet
         $this->id_taxe = $id_taxe;
         $this->lib_taxe = $taxe->lib_taxe;
         $this->id_pays = $taxe->id_pays;
@@ -45,19 +45,19 @@ final class taxe {
 // *************************************************************************************************************
 // FONCTIONS LIEES A LA CREATION D'UNE TAXE 
 // *************************************************************************************************************
-// Créé un Taux de TVA. Utile uniquement pour les développeur
+// CrÃ©Ã© un Taux de TVA. Utile uniquement pour les dÃ©veloppeur
     final public function create($lib_taxe, $id_pays, $code_taxe, $info_calcul) {
         global $bdd;
 
         // *************************************************
-        // Controle des données transmises
+        // Controle des donnÃ©es transmises
         $this->lib_taxe = $lib_taxe;
         $this->id_pays = $id_pays;
         $this->code_taxe = $code_taxe;
         $this->info_calcul = $info_calcul;
 
         // *************************************************
-        // Si les valeurs reçues sont incorrectes
+        // Si les valeurs reÃ§ues sont incorrectes
         if (count($GLOBALS['_ALERTES'])) {
             return false;
         }
@@ -70,7 +70,7 @@ final class taxe {
         $bdd->exec($query);
 
         // *************************************************
-        // Résultat positif de la création
+        // RÃ©sultat positif de la crÃ©ation
         return true;
     }
 
@@ -78,9 +78,10 @@ final class taxe {
     final public function import($id_taxe, $lib_taxe, $id_pays, $code_taxe, $info_calcul) {
         global $bdd;
         global $DIR;
+        global $CORE_DIR;
 
         // *************************************************
-        // Controle des données transmises
+        // Controle des donnÃ©es transmises
         $this->id_taxe = $id_taxe;
         $this->lib_taxe = $lib_taxe;
         $this->id_pays = $id_pays;
@@ -88,15 +89,15 @@ final class taxe {
         $this->info_calcul = $info_calcul;
 
         // *************************************************
-        // Si les valeurs reçues sont incorrectes
+        // Si les valeurs reÃ§ues sont incorrectes
         if (count($GLOBALS['_ALERTES'])) {
             return false;
         }
 
 
         // *************************************************
-        // Transfert du fichier nécessaire le cas échéant
-        $local_taxe_file = $DIR . "taxes/taxe_" . $this->code_taxe . ".inc.php";
+        // Transfert du fichier nÃ©cessaire le cas Ã©chÃ©ant
+        $local_taxe_file = $CORE_DIR . "taxes/taxe_" . $this->code_taxe . ".inc.php";
         if (!is_file($local_taxe_file)) {
             import_file($local_taxe_file, $distant_taxe_file);
         }
@@ -110,7 +111,7 @@ final class taxe {
 
 
         // *************************************************
-        // Résultat positif de la création
+        // RÃ©sultat positif de la crÃ©ation
         return true;
     }
 
@@ -122,20 +123,20 @@ final class taxe {
         global $bdd;
 
         // *************************************************
-        // Controle des données transmises
+        // Controle des donnÃ©es transmises
         $this->lib_taxe = $lib_taxe;
         $this->id_pays = $id_pays;
         $this->code_taxe = $code_taxe;
         $this->info_calcul = $info_calcul;
 
         // *************************************************
-        // Si les valeurs reçues sont incorrectes
+        // Si les valeurs reÃ§ues sont incorrectes
         if (count($GLOBALS['_ALERTES'])) {
             return false;
         }
 
         // *************************************************
-        // Mise à jour de la base
+        // Mise Ã  jour de la base
         $query = "UPDATE taxes
 						SET lib_taxe = '" . addslashes($this->lib_taxe) . "', id_pays = '" . $this->id_pays . "',
 								code_taxe = '" . addslashes($this->code_taxe) . "', info_calcul = '" . addslashes($this->info_calcul) . "'
@@ -143,7 +144,7 @@ final class taxe {
         $bdd->exec($query);
 
         // *************************************************
-        // Résultat positif de la modification
+        // RÃ©sultat positif de la modification
         return true;
     }
 
@@ -165,11 +166,11 @@ final class taxe {
         global $bdd;
 
         // *************************************************
-        // Controle que la taxe n'est pas utilisée
+        // Controle que la taxe n'est pas utilisÃ©e
         $query = "SELECT id_taxe FROM art_categs_taxes
 						WHERE id_taxe ='" . $this->id_taxe . "' ";
         $resultat = $bdd->query($query);
-        // Controle si l'Id_taxe est trouvé
+        // Controle si l'Id_taxe est trouvÃ©
         if ($taxe = $resultat->fetchObject()) {
             $GLOBALS['_ALERTES']['taxe_used'] = 1;
             return false;
@@ -202,10 +203,10 @@ final class taxe {
             }
 
             // *************************************************
-            // Fichier gérant la taxe
-            $taxe_file = $DIR."taxes/taxe_".$this->getCode_taxe().".inc.php";
+            // Fichier gÃ©rant la taxe
+            $taxe_file = $CORE_DIR."taxes/taxe_".$this->getCode_taxe().".inc.php";
             if (!is_file($taxe_file)) {
-                    $erreur = "Le fichier ".$taxe_file." permettant le calcul du montant de la taxe ".$this->getId_taxe()." n'est pas défini";
+                    $erreur = "Le fichier ".$taxe_file." permettant le calcul du montant de la taxe ".$this->getId_taxe()." n'est pas dÃ©fini";
                     alerte_dev ($erreur);
             }
             include ($taxe_file);
@@ -257,7 +258,7 @@ function taxes_pays($id_pays) {
     return $resultat->fetchAll();
 }
 
-//liste des pays ayant des taxes définies
+//liste des pays ayant des taxes dÃ©finies
 function defined_taxes_pays() {
     global $bdd;
 

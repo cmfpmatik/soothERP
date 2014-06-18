@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * inherits from line

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // All file is writen in UTF-8
 

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $date = date_Fr_to_Us($_REQUEST['collab_date_naissance']);
 $infos_profils[$id_profil]['numero_secu'] 				=  $_REQUEST['collab_numero_secu'];
 $infos_profils[$id_profil]['date_naissance'] 			=  $date;

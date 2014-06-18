@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
 <title>PHPMailer - SMTP (Gmail) basic test</title>
 </head>

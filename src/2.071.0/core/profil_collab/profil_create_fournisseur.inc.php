@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 
 $infos_profils[$id_profil]['code_client'] 							=  $_REQUEST['code_client'];

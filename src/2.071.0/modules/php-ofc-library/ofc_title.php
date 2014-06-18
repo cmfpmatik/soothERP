@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Set the title of a chart, make one of these and pass it into

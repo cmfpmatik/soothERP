@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 include_once 'ofc_bar_base.php';
 

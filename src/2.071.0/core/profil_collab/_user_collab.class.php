@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 // *************************************************************************************************************
 // CLASSE DE GESTION DES INFORMATIONS SPECIFIQUES A L'UTILISATEUR COLLABORATEUR 
@@ -11,7 +11,7 @@ function __construct($profil) {
 }
 
 
-// Charger les taches crées par l'utilisateur
+// Charger les taches crÃ©es par l'utilisateur
 function charger_taches_crees ($order_by = "", $page = 1, $nb_taches = 20, $etat_tache = "0,1") {
 	global $bdd;
 
@@ -30,7 +30,7 @@ function charger_taches_crees ($order_by = "", $page = 1, $nb_taches = 20, $etat
 	$resultat = $bdd->query ($query);
 	while ($tmp = $resultat->fetchObject()) {	$taches_crees[] =  new tache($tmp->id_tache);	}
 	
-	//comptage des taches crées par l'utilisateur	
+	//comptage des taches crÃ©es par l'utilisateur	
 	$nb_taches = 0;
 	
 	$query = "SELECT COUNT(id_tache) nb_taches

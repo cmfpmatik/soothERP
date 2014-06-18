@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // All file is writen in UTF-8
 
  // Load library
@@ -13,25 +13,25 @@ $table = new odsTable('utf8');
 // Create french row
 $row   = new odsTableRow();
 $row->addCell( new odsTableCellString("French") );
-$row->addCell( new odsTableCellString("àôïîéèç...") );
+$row->addCell( new odsTableCellString("Ã Ã´Ã¯Ã®Ã©Ã¨Ã§...") );
 $table->addRow($row);
 
 // Create greek row
 $row   = new odsTableRow();
 $row->addCell( new odsTableCellString("Greek") );
-$row->addCell( new odsTableCellString("αβγδεζϕΩ...") );
+$row->addCell( new odsTableCellString("Î±Î²Î³Î´ÎµÎ¶Ï•Î©...") );
 $table->addRow($row);
 
 // Create hebrew row
 $row   = new odsTableRow();
 $row->addCell( new odsTableCellString("Hebrew") );
-$row->addCell( new odsTableCellString("ש֓חרםא...") );
+$row->addCell( new odsTableCellString("×©Ö“×—×¨××...") );
 $table->addRow($row);
 
 // Create arab row
 $row   = new odsTableRow();
 $row->addCell( new odsTableCellString("Arab") );
-$row->addCell( new odsTableCellString("ڤڦڪصى...") );
+$row->addCell( new odsTableCellString("Ú¤Ú¦ÚªØµÙ‰...") );
 $table->addRow($row);
 
 $row   = new odsTableRow();

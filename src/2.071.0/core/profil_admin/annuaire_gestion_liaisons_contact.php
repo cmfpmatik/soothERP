@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // CONFIG DES DONNEES du catalogue
 // *************************************************************************************************************
@@ -12,7 +12,7 @@ require_once ($DIR."_contact_liaisons_types.class.php");
 
 //on charge Toutes les liaisons existantes
 
-// Renvoie les diff�rents types de liaisons existants
+// Renvoie les différents types de liaisons existants
 function get_annu_liaisons_types_exist () {
 	global $bdd;
 

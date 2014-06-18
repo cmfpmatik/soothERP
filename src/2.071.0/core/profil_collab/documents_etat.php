@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // AFFICAHE DANS UN SELECT DES ETATS D'UN DOCUMENT EN FONCTION DU TYPE DE DOCU (moteur de recherche document)
 // *************************************************************************************************************
@@ -19,7 +19,7 @@ else {
 }
 
 function print_plain() {
-  header("Content-type: text/html; charset=windows-1252");
+  header("Content-type: text/html; charset=utf8");
   get_etat(urldecode ($_REQUEST["doc_type"]));
   
 }

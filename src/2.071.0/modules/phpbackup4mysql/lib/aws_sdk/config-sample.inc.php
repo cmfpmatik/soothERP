@@ -1,4 +1,4 @@
-<?php if (!class_exists('CFRuntime')) die('No direct access allowed.');
+﻿<?php if (!class_exists('CFRuntime')) die('No direct access allowed.');
 /**
  * Stores your AWS account information. Add your account information, and then rename this file
  * to 'config.inc.php'.

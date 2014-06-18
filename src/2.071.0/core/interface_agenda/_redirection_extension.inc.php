@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 $path_parts = pathinfo($_SERVER["PHP_SELF"]);
 $path_parts2 = pathinfo($THIS_DIR);

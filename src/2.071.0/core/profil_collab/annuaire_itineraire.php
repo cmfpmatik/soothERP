@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 // *************************************************************************************************************
 // [ADMINISTRATEUR] AFFICHAGE D'UNE FICHE D'ADRESSE
 // *************************************************************************************************************
@@ -39,16 +39,16 @@ if (!$adresse_arrivee->getRef_adresse()) {
 	exit;
 }
 	
-// Adresse complète du dpart de l'itinaire (adresse, code postal, ville)
+// Adresse complÃ¨te du dpart de l'itinaire (adresse, code postal, ville)
 $adresse_complete_depart = str_replace("\n", " ", $adresse_depart->getText_adresse())." ".$adresse_depart->getCode_postal()." ".$adresse_depart->getVille();
 
-// Adresse complète du dpart de l'itinaire (adresse, code postal, ville)
+// Adresse complÃ¨te du dpart de l'itinaire (adresse, code postal, ville)
 $adresse_complete_arrivee = str_replace("\n", " ", $adresse_arrivee->getText_adresse())." ".$adresse_arrivee->getCode_postal()." ".$adresse_arrivee->getVille();									
 ?>
 <html>
 	<head>
 		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Votre Itinraire</title>
 	</head>
 <body>

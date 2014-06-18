@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class line_hollow extends line_base
 {

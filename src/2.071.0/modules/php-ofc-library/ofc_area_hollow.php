@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class area_hollow extends area_base
 {

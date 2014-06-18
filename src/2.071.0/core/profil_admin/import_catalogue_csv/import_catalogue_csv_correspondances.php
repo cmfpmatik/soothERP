@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // IMPORT FICHIER catalogue CSV correspondances avec les valeurs de colones
 // *************************************************************************************************************
@@ -15,7 +15,7 @@ $listes_champs = array();
 $lib_champ = "";
 switch ($_REQUEST["lmb_col"]) {
 	case "ref_art_categ":
-		$lib_champ = "la cat�gorie d'article";
+		$lib_champ = "la catégorie d'article";
 		$select_art_categ =	get_articles_categories();
 		foreach ($select_art_categ  as $s_art_categ){
 			$listes_champs[] = array("id"=>$s_art_categ->ref_art_categ, "lib"=>$s_art_categ->lib_art_categ);
@@ -58,7 +58,7 @@ switch ($_REQUEST["lmb_col"]) {
 // *************************************************************************************************************
 // AFFICHAGE
 // *************************************************************************************************************
-include ($DIR."profil_".$_SESSION['profils'][$ID_PROFIL]->getCode_profil()."/modules/".$import_catalogue_csv['folder_name']."themes/".$_SESSION['theme']->getCode_theme()."/page_import_catalogue_csv_correspondances.inc.php");
+include ($DIR."profil_".$_SESSION['profils'][$ID_PROFIL]->getCode_profil()."/modules/".$import_catalogue_csv['folder_name']."themes/".$CHOIX_THEME."/".$_SESSION['theme']->getCode_theme()."/page_import_catalogue_csv_correspondances.inc.php");
 
 
 

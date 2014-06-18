@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * @author Omer Hassan
  * @author Ryan Parman

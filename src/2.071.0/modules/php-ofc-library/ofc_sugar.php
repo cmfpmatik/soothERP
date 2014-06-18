@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Sugar: to make stars easier sometimes

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // ACCUEIL DE L'UTILISATEUR ADMINISTRATEUR
 // *************************************************************************************************************
@@ -11,7 +11,7 @@ require ($DIR."_session.inc.php");
 include_once ($CONFIG_DIR."profil_fournisseur.config.php");
 // chargement de la class du profil
 contact::load_profil_class($FOURNISSEUR_ID_PROFIL);
-// Pr�parations des variables d'affichage
+// Préparations des variables d'affichage
 $liste_categories = contact_fournisseur::charger_fournisseurs_categories ();
 
 // *************************************************************************************************************

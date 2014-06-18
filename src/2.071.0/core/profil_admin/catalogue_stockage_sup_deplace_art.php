@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 // *************************************************************************************************************
 // DEPLACEMENT DES ARTICLES D'UN STOCK ET SUPPRESSION DU STOCK
 // *************************************************************************************************************
@@ -11,7 +11,7 @@ require ($DIR."_session.inc.php");
 
 if (isset($_REQUEST['id_stock']) && isset($_REQUEST['type_doc'])) {	
 	// *************************************************
-	// Création de la catégorie
+	// CrÃ©ation de la catÃ©gorie
 	$stock_liste = new stock ($_REQUEST['id_stock']);
 	
 	//soit on transfere les articles soit on les livre

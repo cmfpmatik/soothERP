@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // MODIFICATION D'UN PROFIL
 // *************************************************************************************************************
@@ -11,7 +11,7 @@ require ($DIR."_session.inc.php");
 
 if (isset($FOURNISSEUR_ID_PROFIL)) {	
 	// *************************************************
-	// Controle des donn�es fournies par le formulaire
+	// Controle des données fournies par le formulaire
 
 	$infos_profils = array();
 	$id_profil	=	$FOURNISSEUR_ID_PROFIL;

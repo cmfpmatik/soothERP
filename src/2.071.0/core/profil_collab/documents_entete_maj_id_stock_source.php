@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // MISA A JOUR DU STOCK SOURCE POUR UN TRM
 // *************************************************************************************************************
@@ -11,7 +11,7 @@ require ($DIR."_session.inc.php");
 
 if (isset($_REQUEST['ref_doc'])) {
 
-// ouverture des infos du document et mise � jour
+// ouverture des infos du document et mise à jour
 	$document = open_doc ($_REQUEST['ref_doc']);
 
 	 

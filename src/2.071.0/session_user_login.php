@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 // *************************************************************************************************************
 // PAGE DE RE-LOGIN DE L'UTILISATEUR 
 // *************************************************************************************************************
@@ -9,10 +9,10 @@ require ("_dir.inc.php");
 require ($DIR."_session.inc.php");
 
 
-// Vérification de la page de provennance
+// VÃ©rification de la page de provennance
 if (isset ($_REQUEST['page_from'])) {		$page_from = &$_REQUEST['page_from'];  }
 else {																	$page_from = "";  }
-// Vérification de l'id_profil
+// VÃ©rification de l'id_profil
 if (isset ($_SESSION['USER_INFOS']['id_profil'])) {		$id_profil = &$_SESSION['USER_INFOS']['id_profil'];  }
 else {																	$id_profil = "";  }
 
@@ -20,7 +20,7 @@ else {																	$id_profil = "";  }
 // TRAITEMENTS 
 // *************************************************************************************************************
 
-// REF_USER ou LOGIN si prédéfini
+// REF_USER ou LOGIN si prÃ©dÃ©fini
 $predefined_user = "";
 if (isset($_SESSION['USER_INFOS']['ref_user'])) {
 	$predefined_user = $_SESSION['USER_INFOS']['ref_user'];
@@ -41,7 +41,7 @@ if (isset($_SESSION['USER_INFOS']['ref_user'])) {
 	<tr>
 		<td colspan="2" style="text-align:center; font-weight:bolder; line-height:20px; height:20px;  border-bottom:1px solid #000000;">
 						
-			<a href="#" id="close_ask_login"><img src="<?php echo $_ENV['CHEMIN_ABSOLU']; ?>profil_collab/themes/<?php echo $_SESSION['theme']->getCode_theme();?>/images/supprime.gif" border="0" style="float:right"></a>
+			<a href="#" id="close_ask_login"><img src="<?php echo $_SESSION['theme']->getCode_gtheme();?>/images/supprime.gif" border="0" style="float:right"></a>
 			 
 			Veuillez vous r&eacute;identifier
 			</td>
@@ -74,7 +74,7 @@ if (isset($_SESSION['USER_INFOS']['ref_user'])) {
 	</tr>
 	<tr>
 		<td colspan=2 align="right">	
-	<a href="#" onclick="window.open ('../<?php echo $DIR;?>site/__session_stop.php', '_top');" style="text-decoration:none">Quitter</a>
+	<a href="#" onclick="window.open ('<?php echo $CORE_DIR;?>site/__session_stop.php', '_top');" style="text-decoration:none">Quitter</a>
 		<script type="text/javascript">
 		Event.observe("close_ask_login", "click",  function(evt){Event.stop(evt); close_ask_login();}, false);
 		</script>

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // AFFICHAGE DU COURRIER EN MODE PDF (partie boutons)
 // *************************************************************************************************************
@@ -19,7 +19,7 @@ if (isset($_REQUEST["filigrane"]))
 
 
 	
-//chargement des modes d'�dition
+//chargement des modes d'édition
 $editions_modes	= liste_mode_edition();
 
 $courrier = new CourrierEtendu($id_courrier);

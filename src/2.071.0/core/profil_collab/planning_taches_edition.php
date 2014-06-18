@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // EDITION D'UNE TACHE
 // *************************************************************************************************************
@@ -9,7 +9,7 @@ require ("_profil.inc.php");
 require ($DIR."_session.inc.php");
 
 
-//chargement des modes d'�dition
+//chargement des modes d'édition
 //infos pour mini moteur de recherche contact
 $profils_mini = array();
 foreach ($_SESSION['profils'] as $profil) {

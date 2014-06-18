@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 function open_flash_chart_object_str( $width, $height, $url, $use_swfobject=true, $base='' )
 {

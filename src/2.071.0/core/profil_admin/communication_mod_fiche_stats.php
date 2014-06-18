@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // GESTION DES PDF STATS
 // *************************************************************************************************************
@@ -8,7 +8,7 @@ require ("_profil.inc.php");
 require ($DIR."_session.inc.php");
 
 
-//variable n�cessaires aux newsletter
+//variable nécessaires aux newsletter
 $mail_templates = charger_mail_templates();
 
 $liste_id_stats = 1;

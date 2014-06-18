@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // Pretty print some JSON
 function json_format($json)

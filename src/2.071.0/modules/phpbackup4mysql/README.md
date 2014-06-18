@@ -1,4 +1,4 @@
-# PhpBackup4MySQL
+﻿# PhpBackup4MySQL
 
 *PhpBackup4MySQL is a very easy to use, lightweight Php class to handle MySQL
 backups.

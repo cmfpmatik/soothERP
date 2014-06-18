@@ -1,4 +1,4 @@
-<?php
+Ôªø<?php
 // *************************************************************************************************************
 // CLASSE REGISSANT LES INFORMATIONS SUR UNE NEWSLETTER
 // *************************************************************************************************************
@@ -38,21 +38,21 @@ public function __construct ($id_newsletter = "") {
 	$resultat = $bdd->query ($query);
 	if (!$newsletter = $resultat->fetchObject()) { return false; }
 
-	$this->id_newsletter			= $id_newsletter;
-	$this->nom_newsletter 			= $newsletter->nom_newsletter;
-	$this->periodicite 				= $newsletter->periodicite;
-	$this->description_interne 		= $newsletter->description_interne;
+	$this->id_newsletter		= $id_newsletter;
+	$this->nom_newsletter 		= $newsletter->nom_newsletter;
+	$this->periodicite 		= $newsletter->periodicite;
+	$this->description_interne 	= $newsletter->description_interne;
 	$this->description_publique 	= $newsletter->description_publique;
-	$this->id_mail_template 		= $newsletter->id_mail_template;
-	$this->archives_publiques 		= $newsletter->archives_publiques;
-	$this->inscription_libre 		= $newsletter->inscription_libre;
-	$this->nom_expediteur 			= $newsletter->nom_expediteur;
-	$this->mail_expediteur 			= $newsletter->mail_expediteur;
-	$this->mail_retour 				= $newsletter->mail_retour;
+	$this->id_mail_template 	= $newsletter->id_mail_template;
+	$this->archives_publiques 	= $newsletter->archives_publiques;
+	$this->inscription_libre 	= $newsletter->inscription_libre;
+	$this->nom_expediteur 		= $newsletter->nom_expediteur;
+	$this->mail_expediteur 		= $newsletter->mail_expediteur;
+	$this->mail_retour 		= $newsletter->mail_retour;
 	$this->mail_inscription_titre 	= $newsletter->mail_inscription_titre;
 	$this->mail_inscription_corps 	= $newsletter->mail_inscription_corps;
-	$this->titre_brouillon			= $newsletter->titre_brouillon;
-	$this->brouillon				= $newsletter->brouillon;
+	$this->titre_brouillon		= $newsletter->titre_brouillon;
+	$this->brouillon		= $newsletter->brouillon;
 
 	return true;
 }
@@ -69,17 +69,17 @@ public function create_newsletter ($infos) {
 	global $bdd;
 
   // *************************************************
-	// RÈception des donnÈes
-	$this->nom_newsletter 				= $infos['nom_newsletter'];
-	$this->periodicite 					= $infos['periodicite_newsletter'];
-	$this->description_interne 			= $infos['description_interne_newsletter'];
+	// R√©ception des donn√©es
+	$this->nom_newsletter 			= $infos['nom_newsletter'];
+	$this->periodicite 			= $infos['periodicite_newsletter'];
+	$this->description_interne 		= $infos['description_interne_newsletter'];
 	$this->description_publique 		= $infos['description_publique_newsletter'];
-	$this->id_mail_template 			= $infos['id_mail_template_newsletter'];
-	$this->archives_publiques 			= $infos['archives_publiques_newsletter'];
-	$this->inscription_libre 			= $infos['inscription_libre_newsletter'];
-	$this->nom_expediteur 				= $infos['nom_expediteur_newsletter'];
-	$this->mail_expediteur 				= $infos['mail_expediteur_newsletter'];
-	$this->mail_retour 					= $infos['mail_retour_newsletter'];
+	$this->id_mail_template 		= $infos['id_mail_template_newsletter'];
+	$this->archives_publiques 		= $infos['archives_publiques_newsletter'];
+	$this->inscription_libre 		= $infos['inscription_libre_newsletter'];
+	$this->nom_expediteur 			= $infos['nom_expediteur_newsletter'];
+	$this->mail_expediteur 			= $infos['mail_expediteur_newsletter'];
+	$this->mail_retour 			= $infos['mail_retour_newsletter'];
 	$this->mail_inscription_titre 		= $infos['mail_inscription_titre_newsletter'];
 	$this->mail_inscription_corps 		= $infos['mail_inscription_corps_newsletter'];
 
@@ -109,22 +109,22 @@ public function create_newsletter ($infos) {
 	return true;
 }
 
-//fonction de la mise ‡ jour des informations de la newsletter
+//fonction de la mise √† jour des informations de la newsletter
 public function maj_newsletter ($infos) {
 	global $bdd;
 
   // *************************************************
-	// RÈception des donnÈes
-	$this->nom_newsletter 				= $infos['nom_newsletter'];
-	$this->periodicite 					= $infos['periodicite_newsletter'];
-	$this->description_interne 			= $infos['description_interne_newsletter'];
+	// R√©ception des donn√©es
+	$this->nom_newsletter 			= $infos['nom_newsletter'];
+	$this->periodicite 			= $infos['periodicite_newsletter'];
+	$this->description_interne 		= $infos['description_interne_newsletter'];
 	$this->description_publique 		= $infos['description_publique_newsletter'];
-	$this->id_mail_template 			= $infos['id_mail_template_newsletter'];
-	$this->archives_publiques 			= $infos['archives_publiques_newsletter'];
-	$this->inscription_libre 			= $infos['inscription_libre_newsletter'];
-	$this->nom_expediteur 				= $infos['nom_expediteur_newsletter'];
-	$this->mail_expediteur 				= $infos['mail_expediteur_newsletter'];
-	$this->mail_retour 					= $infos['mail_retour_newsletter'];
+	$this->id_mail_template 		= $infos['id_mail_template_newsletter'];
+	$this->archives_publiques 		= $infos['archives_publiques_newsletter'];
+	$this->inscription_libre 		= $infos['inscription_libre_newsletter'];
+	$this->nom_expediteur 			= $infos['nom_expediteur_newsletter'];
+	$this->mail_expediteur 			= $infos['mail_expediteur_newsletter'];
+	$this->mail_retour 			= $infos['mail_retour_newsletter'];
 	$this->mail_inscription_titre 		= $infos['mail_inscription_titre_newsletter'];
 	$this->mail_inscription_corps 		= $infos['mail_inscription_corps_newsletter'];
 
@@ -161,8 +161,8 @@ public function save_brouillon ($brouillon, $titre_brouillon) {
 	global $bdd;
 
 	// *************************************************
-	// RÈception des donnÈes
-	$this->brouillon 						= $brouillon;
+	// R√©ception des donn√©es
+	$this->brouillon 			= $brouillon;
 	$this->titre_brouillon 			= $titre_brouillon;
 	if (count($GLOBALS['_ALERTES'])) {
 		return false;
@@ -191,10 +191,10 @@ public function suppression () {
 
 
 // *************************************************************************************************************
-// fonction liÈes ‡ la gestion des inscrits ‡ la newsletter
+// fonction li√©es √† la gestion des inscrits √† la newsletter
 // *************************************************************************************************************
 
-//ajout d'un email ‡ cette liste
+//ajout d'un email √† cette liste
 public function add_newsletter_inscrit ($email, $nom, $inscrit = 1) {
 	global $bdd;
 	
@@ -202,7 +202,7 @@ public function add_newsletter_inscrit ($email, $nom, $inscrit = 1) {
 						FROM newsletters_inscrits
 						WHERE id_newsletter = '".$this->id_newsletter."' && email = '".$email."' ";
 	$resultat = $bdd->query ($query);
-	//email dÈj‡ inscrit, on ne l'enregistre pas
+	//email d√©j√† inscrit, on ne l'enregistre pas
 	if ($tmp = $resultat->fetchObject()) { return false; }
 	
 	$query = "INSERT INTO newsletters_inscrits (id_newsletter, nom, email, inscrit) 
@@ -212,7 +212,7 @@ public function add_newsletter_inscrit ($email, $nom, $inscrit = 1) {
 	
 }
 
-//Mise ‡ jour d'un inscrit ‡ une newsletter dans les non-inscrits
+//Mise √† jour d'un inscrit √† une newsletter dans les non-inscrits
 public function maj_newsletter_inscrit ($email, $inscrit = 0, $nom = ""){
 	global $bdd;
 	
@@ -220,7 +220,7 @@ public function maj_newsletter_inscrit ($email, $inscrit = 0, $nom = ""){
 						FROM newsletters_inscrits
 						WHERE id_newsletter = '".$this->id_newsletter."' && email = '".$email."' ";
 	$resultat = $bdd->query ($query);
-	//email dÈj‡ inscrit, on le passe en desincrit
+	//email d√©j√† inscrit, on le passe en desincrit
 	if ($tmp = $resultat->fetchObject()) {
 		$query = "UPDATE newsletters_inscrits 
 							SET id_newsletter = '".$this->id_newsletter."',
@@ -259,22 +259,22 @@ public function charge_inscrits ($inscrit) {
 	return $liste;
 }
 
-//ajout prÈinscrit newletter
+//ajout pr√©inscrit newletter
 
-//ajout d'un prÈinscrit
+//ajout d'un pr√©inscrit
 public function add_newsletter_newsletters_inscriptions ($email) {
 	global $bdd;
 	
 	if (!$email) { return false; }
 	
-	// On vÈrifie que l'email n'est pas dÈj‡ inscrit (en prÈinscription) pour la newsletter
+	// On v√©rifie que l'email n'est pas d√©j√† inscrit (en pr√©inscription) pour la newsletter
 	$query = "SELECT id_newsletter FROM newsletters_inscriptions" . 
 				" WHERE id_newsletter = '" . $this->id_newsletter . "'" . 
 				" AND email = '" . $email . "';";
 	$res = $bdd->query($query);
 	if($res->rowCount()){return false; }
 	
-	// On vÈrifie que l'email n'est pas dÈj‡ inscrit (inscription validÈe) pour la newsletter
+	// On v√©rifie que l'email n'est pas d√©j√† inscrit (inscription valid√©e) pour la newsletter
 	$query = "SELECT id_newsletter FROM newsletters_inscrits" . 
 				" WHERE id_newsletter = '" . $this->id_newsletter . "'" . 
 				" AND email = '" . $email . "';";
@@ -293,14 +293,14 @@ public function add_newsletter_newsletters_inscriptions ($email) {
 	return $url_insciption;	
 }
 
-//maj d'un prÈinscrit
+//maj d'un pr√©inscrit
 public function maj_newsletter_newsletters_inscriptions ($email, $code_secret) {
 	global $bdd;
 
 	$query = "SELECT id_newsletter FROM newsletters_inscrits WHERE id_newsletter = '" . $this->id_newsletter . "'
 				AND email = '" . $email . "' AND inscrit='1';";
 	$resultat = $bdd->query($query);
-	// Inscription dÈj‡ validÈe
+	// Inscription d√©j√† valid√©e
 	if($tmp = $resultat->fetchObject()){
 		$GLOBALS['_INFOS']['validation_inscription_newsletter'] = -2;
 		return false;
@@ -312,7 +312,7 @@ public function maj_newsletter_newsletters_inscriptions ($email, $code_secret) {
 							&& email = '".$email."' 
 							&& date_demande > '".date ("Y-m-d", mktime(0, 0, 0, date("m")-1, date("d"),   date("Y")))."' ";
 	$resultat = $bdd->query ($query);
-	// Email (prÈ-inscription) non prÈsent ou date dÈpassÈe
+	// Email (pr√©-inscription) non pr√©sent ou date d√©pass√©e
 	if (!$tmp = $resultat->fetchObject()) {
 		return false;
 	}
@@ -330,7 +330,7 @@ public function maj_newsletter_newsletters_inscriptions ($email, $code_secret) {
 						WHERE id_newsletter = '".$this->id_newsletter."' && email = '".addslashes($email)."'";
 	$bdd->exec ($query);
 	
-	//maintenance... vidange des email prÈinscrits dÈpassant le mois
+	//maintenance... vidange des email pr√©inscrits d√©passant le mois
 	$query = "DELETE FROM newsletters_inscriptions 
 						WHERE date_demande < '".date ("Y-m-d", mktime(0, 0, 0, date("m")-1, date("d"),   date("Y")))."' ";
 	$bdd->exec ($query);
@@ -340,7 +340,7 @@ public function maj_newsletter_newsletters_inscriptions ($email, $code_secret) {
 }
 
 // *************************************************************************************************************
-//fonction liÈes ‡ la crÈation d'un envois
+//fonction li√©es √† la cr√©ation d'un envois
 // *************************************************************************************************************
 
 //ajout d'un envoi
@@ -495,7 +495,7 @@ function charger_newsletters () {
 	return $newsletters;
 }
 
-//chargement du nombre total d'abonnÈs ‡ une newsletter
+//chargement du nombre total d'abonn√©s √† une newsletter
 function charger_total_abonnes ($id_newsletter) {
 	global $bdd;
 	global $ADMIN_ID_PROFIL;
@@ -631,13 +631,14 @@ function charger_total_abonnes ($id_newsletter) {
 }
 
 
-//gÈnÈration d'un code de sÈcuritÈ pour les inscriptions et desincriptions ‡ une newletter
+//g√©n√©ration d'un code de s√©curit√© pour les inscriptions et desincriptions √† une newletter
 function creer_code_unique ($email, $id_newsletter) {
 	global $DIR;
+        global $CONFIG_DIR;
 	if (!file_exists($DIR."config/newsletter.config.php")){
-		//vÈrification de l'existence du code sÈcuritÈ de l'envoi de newsletter
-		if(!$file_config_newsletter = @fopen ($DIR."config/newsletter.config.php", "w")){
-			$erreur = "Impossible de crÈer le fichier de configuration config/newsletter.config.php ";
+		//v√©rification de l'existence du code s√©curit√© de l'envoi de newsletter
+		if(!$file_config_newsletter = @fopen ($CONFIG_DIR."newsletter.config.php", "w")){
+			$erreur = "Impossible de cr√©er le fichier de configuration newsletter.config.php ";
 			return false;	// L'ERREUR N'EST PAS GEREE DANS CE CODE : Trouver un moyen propre de le faire proprement
 		}else{
 //Il est important de coller le code contre le bord de la page
@@ -650,24 +651,25 @@ $file_content = "<?php
 
 ?>";
 			if (!fwrite ($file_config_newsletter, $file_content)) {
-				$erreur = "Impossible d'Ècrire dans le fichier de configuration config/newsletter.config.php";
+				$erreur = "Impossible d'√©crire dans le fichier de configuration newsletter.config.php";
 				return false;	// L'ERREUR N'EST PAS GEREE DANS CE CODE : Trouver un moyen propre de le faire proprement
 			}
 		}
 		fclose ($file_config_newsletter);
 	}
-	require($DIR."config/newsletter.config.php");
+	require($CONFIG_DIR."newsletter.config.php");
 	$code_unique = crypt($email."_".$id_newsletter, $CODE_SECU_NEWSLETTER);
 	return $code_unique;
 }
 
-//vÈrification de la validitÈ d'un code de sÈcuritÈ
+//v√©rification de la validit√© d'un code de s√©curit√©
 function verifier_code_unique ($code_unique, $email, $id_newsletter) {
 	global $DIR;
-	if (!file_exists($DIR."config/newsletter.config.php"))
+        global $CONFIG_DIR;
+	if (!file_exists($CONFIG_DIR."newsletter.config.php"))
 	{		return false;}	// L'ERREUR N'EST PAS GEREE DANS LE CODE : Trouver un moyen propre de le faire proprement
-											// Il n'est pas nÈcessaire de gÈnÈrer le fichier car dans tous les cas, le code ne sera pas vÈrifiÈ
-	require($DIR."config/newsletter.config.php");
+											// Il n'est pas n√©cessaire de g√©n√©rer le fichier car dans tous les cas, le code ne sera pas v√©rifi√©
+	require($CONFIG_DIR."newsletter.config.php");
 	$code_unique2 = crypt ($email."_".$id_newsletter, $CODE_SECU_NEWSLETTER);
 	if ($code_unique != $code_unique2)
 	{		return false;}
@@ -688,7 +690,7 @@ function charger_envoi_newsletter ($id_envoi) {
 
 }
 
-//mettre ‡ jour l'Ètat de lecture d'un email
+//mettre √† jour l'√©tat de lecture d'un email
 function maj_envoi_lecture ($id_envoi, $email, $lecture = 1) {
 	global $bdd;
 	
@@ -701,7 +703,7 @@ function maj_envoi_lecture ($id_envoi, $email, $lecture = 1) {
 	
 }
 
-//mise‡ jour de la durÈe de l'envoi
+//mise√† jour de la dur√©e de l'envoi
 function duree_newsletter_envoi ($id_envoi) {
 	global $bdd;
 	

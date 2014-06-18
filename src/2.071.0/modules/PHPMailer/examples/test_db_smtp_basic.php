@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
 <title>PHPMailer - MySQL Database - SMTP basic test with authentication</title>
 </head>

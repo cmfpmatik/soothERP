@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $DIR = "../";
 require ($DIR."_session.inc.php");
 

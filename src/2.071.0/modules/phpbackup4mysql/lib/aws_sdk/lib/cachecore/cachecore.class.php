@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Container for all shared caching methods. This is not intended to be instantiated directly, but is
  * extended by the cache-specific classes.

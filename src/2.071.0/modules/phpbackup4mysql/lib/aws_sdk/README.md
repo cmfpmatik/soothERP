@@ -1,4 +1,4 @@
-# AWS SDK for PHP
+﻿# AWS SDK for PHP
 
 ---
 

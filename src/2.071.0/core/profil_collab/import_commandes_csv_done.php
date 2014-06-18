@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 
 require ("_dir.inc.php");
 require ("_profil.inc.php");

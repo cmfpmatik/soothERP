@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Handles all HTTP requests using cURL and manages the responses.
  *

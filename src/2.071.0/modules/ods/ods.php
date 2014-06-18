@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*-
  * Copyright (c) 2009 Laurent VUIBERT
  * License : GNU Lesser General Public License v3
@@ -213,7 +213,7 @@ class ods {
 			$root->appendChild($meta);
 		
 		$meta->appendChild($dom->createElement('meta:creation-date',date("Y-m-d\TH:j:s")));
-		$meta->appendChild($dom->createElement('meta:generator','ods générator'));
+		$meta->appendChild($dom->createElement('meta:generator','ods gÃ©nÃ©rator'));
 		$meta->appendChild($dom->createElement('dc:date',date("Y-m-d\TH:j:s")));
 		$meta->appendChild($dom->createElement('meta:editing-duration','PT1S'));
 		$meta->appendChild($dom->createElement('meta:editing-cycles','1'));

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // CLASSE REGISSANT LES INFORMATIONS SUR UN NIVEAU DE RELANCE D'UNE FACTURE
 // *************************************************************************************************************
@@ -26,7 +26,7 @@ public function __construct ($id_niveau_relance = 0) {
 	$this->id_niveau_relance = $id_niveau_relance;
 
 	// *************************************************
-	// Sélection dans la base
+	// SÃ©lection dans la base
 	$query = "SELECT niveau_relance, id_relance_modele, lib_niveau_relance, delai_before_next, id_edition_mode, impression, montant_mini, suite_avant_echeance, actif
 						FROM factures_relances_niveaux
 						WHERE id_niveau_relance = '".$this->id_niveau_relance."' ";
@@ -95,7 +95,7 @@ function create_niveau_relance($id_relance_modele, $lib_niveau_relance, $delai_b
 	}
 
 	// *************************************************
-	// Sélection du niveau de relance
+	// SÃ©lection du niveau de relance
 	$query = "SELECT MAX(niveau_relance) niveau_relance 
 						FROM factures_relances_niveaux
 						WHERE id_relance_modele = '".$this->id_relance_modele."' ";
@@ -165,7 +165,7 @@ function maj_niveau ($new_niveau) {
 	}
 	
 	// *************************************************
-	// Si les valeurs reçues sont incorrectes
+	// Si les valeurs reÃ§ues sont incorrectes
 	if (count($GLOBALS['_ALERTES'])) {
 		return false;
 	}
@@ -184,14 +184,14 @@ function maj_niveau ($new_niveau) {
 
 	$bdd->beginTransaction();
 
-	// Mise à jour des autres adresses
+	// Mise Ã  jour des autres adresses
 	$query = "UPDATE factures_relances_niveaux
 						SET niveau_relance = niveau_relance ".$variation." 1
 						WHERE id_relance_modele = '".$this->id_relance_modele."' && 
 									niveau_relance ".$symbole1." '".$this->niveau_relance."' && niveau_relance ".$symbole2." '".$new_niveau."' ";
 	$bdd->exec ($query);
 
-	// Mise à jour de cette adresse
+	// Mise Ã  jour de cette adresse
 	$query = "UPDATE factures_relances_niveaux
 						SET niveau_relance = '".$new_niveau."'
 						WHERE id_niveau_relance = '".$this->id_niveau_relance."'  ";
@@ -202,7 +202,7 @@ function maj_niveau ($new_niveau) {
 	$this->niveau_relance = $new_niveau;
 
 	// *************************************************
-	// Résultat positif de la modification
+	// RÃ©sultat positif de la modification
 	return true;
 }
 
@@ -211,7 +211,7 @@ public function suppression () {
 	global $bdd;
 
 	// *************************************************
-	// Controle à effectuer le cas échéant
+	// Controle Ã  effectuer le cas Ã©chÃ©ant
 
 	// *************************************************
 	// Suppression du niveau

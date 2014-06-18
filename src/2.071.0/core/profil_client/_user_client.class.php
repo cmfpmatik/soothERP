@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // *************************************************************************************************************
 // CLASSE DE GESTION DES INFORMATIONS SPECIFIQUES A L'UTILISATEUR CLIENT 

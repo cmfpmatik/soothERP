@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 // *************************************************************************************************************
 // GESTION DU REFERENCEMENT DU SITE INTERNET (suppression)
 // *************************************************************************************************************
@@ -10,7 +10,7 @@ require ($DIR."_session.inc.php");
 
 
 if (isset($_REQUEST["nom_fichier"])) {
-	//mas des informations de référencement
+	//mas des informations de rÃ©fÃ©rencement
 	del_reference ($_REQUEST["nom_fichier"]);
 }
 

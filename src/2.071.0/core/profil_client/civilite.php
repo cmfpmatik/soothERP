@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 $_PAGE['MUST_BE_LOGIN'] = 0;
 require("_dir.inc.php");
@@ -15,7 +15,7 @@ else {
 }
 
 function print_plain() {
-  header("Content-type: text/html; charset=windows-1252");
+  header("Content-type: text/html; charset=utf8");
   get_civil(urldecode ($_REQUEST["cat"]));
   
 }
@@ -23,7 +23,7 @@ function print_plain() {
 function get_civil($cat) {
 	global $bdd;
 	$row = get_civilites ($cat);
-	// on boucle sur tous les �l�ments
+	// on boucle sur tous les Ã©lÃ©ments
 	foreach ($row as $civ) {
     $result[] = $civ->id_civilite."=".$civ->lib_civ_court;
   }

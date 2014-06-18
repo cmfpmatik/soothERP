@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class radar_axis_labels
 {

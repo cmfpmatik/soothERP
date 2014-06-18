@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /***
 *
 * Copyright (c) 2011, Yves BOURVON. <groovyprog AT gmail DOT com>

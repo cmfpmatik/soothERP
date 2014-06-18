@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // IMPRESSION DES ETATS DES STOCKS
 // *************************************************************************************************************
@@ -21,7 +21,7 @@ $infos["orderorder"] = $_REQUEST["orderorder"];
 $infos["id_stocks"] = $_REQUEST['id_stocks'];
 $infos["in_stock"] = $_REQUEST["in_stock"];
 
-// Ouverture du fichier pdf des �tats des stocks
+// Ouverture du fichier pdf des ï¿½tats des stocks
 stock::imprimer_etat_stocks ($infos);
 
 

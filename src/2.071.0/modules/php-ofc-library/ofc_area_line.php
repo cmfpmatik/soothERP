@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class area_line extends area_base
 {

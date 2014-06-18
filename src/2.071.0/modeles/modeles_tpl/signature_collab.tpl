@@ -1,4 +1,4 @@
-<B>{USER:nom}</B><BR/>
+﻿<B>{USER:nom}</B><BR/>
 {USER:email}<BR/>
 <BR/>
 {ENTREPRISE:nom}<BR/>

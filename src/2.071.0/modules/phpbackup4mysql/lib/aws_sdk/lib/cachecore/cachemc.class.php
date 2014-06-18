@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Container for all Memcache-based cache methods. Inherits additional methods from <CacheCore>. Adheres
  * to the ICacheCore interface.

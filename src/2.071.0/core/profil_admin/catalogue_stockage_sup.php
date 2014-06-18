@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 // *************************************************************************************************************
 // ACCUEIL DE L'UTILISATEUR ADMINISTRATEUR
 // *************************************************************************************************************
@@ -11,7 +11,7 @@ require ($DIR."_session.inc.php");
 
 if (isset($_REQUEST['id_stock'])) {	
 	// *************************************************
-	// Création de la catégorie
+	// CrÃ©ation de la catÃ©gorie
 	$stock_liste = new stock ($_REQUEST['id_stock']);
 	$stock_liste->check_used_stock ();
 

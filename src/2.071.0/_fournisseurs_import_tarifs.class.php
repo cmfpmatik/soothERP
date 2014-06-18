@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // CLASSE REGISSANT LES INFORMATIONS SUR L'IMPORT DE TARIFS FOURNISSEUR
 // *************************************************************************************************************
@@ -14,11 +14,11 @@ class fournisseurs_import_tarifs {
 	public function __construct ($ref_fournisseur = null) {
 		global $bdd;
 		
-		$this->id_ref_oem			= 0;
+		$this->id_ref_oem		= 0;
 		$this->id_ref_interne		= 0;
 		$this->id_ref_fournisseur	= 0;
 		$this->id_lib_fournisseur	= 0;
-		$this->id_pua_ht			= 0;
+		$this->id_pua_ht		= 0;
 		
 		if(!$ref_fournisseur){
 			return false;
@@ -27,18 +27,18 @@ class fournisseurs_import_tarifs {
 		$this->ref_fournisseur = $ref_fournisseur;
 	
 		// *************************************************
-		// S�lection dans la base
+		// Sélection dans la base
 		$query = "SELECT * 
 					FROM fournisseurs_import_tarifs 
 					WHERE ref_fournisseur = '" . $ref_fournisseur . "';";
 		$resultat = $bdd->query ($query);
 		if (!$tmp = $resultat->fetchObject()) { return false; }
 		
-		$this->id_ref_oem			= $tmp->id_ref_oem;
+		$this->id_ref_oem		= $tmp->id_ref_oem;
 		$this->id_ref_interne		= $tmp->id_ref_interne;
 		$this->id_ref_fournisseur	= $tmp->id_ref_fournisseur;
 		$this->id_lib_fournisseur	= $tmp->id_lib_fournisseur;
-		$this->id_pua_ht			= $tmp->id_pua_ht;
+		$this->id_pua_ht		= $tmp->id_pua_ht;
 	
 		return true;
 	}

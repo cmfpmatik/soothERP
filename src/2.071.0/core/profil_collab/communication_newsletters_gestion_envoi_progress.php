@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 // *************************************************************************************************************
 // PREVIEW DE MODELE DE MAIL
 // *************************************************************************************************************
@@ -12,12 +12,12 @@ require ($DIR."config/newsletter.config.php");
 
 if (!$_SESSION['user']->check_permission ("14")) {
 		//on indique l'interdiction et on stop le script
-		echo "<br /><span style=\"font-weight:bolder;color:#FF0000;\">Vos droits  d'accés ne vous permettent pas de visualiser ce type de page</span>";
+		echo "<br /><span style=\"font-weight:bolder;color:#FF0000;\">Vos droits  d'accÃ©s ne vous permettent pas de visualiser ce type de page</span>";
 		exit();
 }
 
 	// *************************************************
-	// Données pour le formulaire && la requete
+	// DonnÃ©es pour le formulaire && la requete
 	$form['page_to_show'] = $search['page_to_show'] = 1;
 	if (isset($_REQUEST['page_to_show'])) {
 		$form['page_to_show'] = $_REQUEST['page_to_show'];
@@ -46,7 +46,7 @@ if (!$_SESSION['user']->check_permission ("14")) {
 	//echo nl2br ($query);
 	unset ($fiche, $resultat, $query);
 	
-	// Comptage des résultats
+	// Comptage des rÃ©sultats
 	if (!isset($_REQUEST["nb_fiches"])) {
 		$nb_fiches = 0;
 		$query = "SELECT COUNT(id_envoi) nb_fiches
@@ -72,7 +72,7 @@ if (!$_SESSION['user']->check_permission ("14")) {
 	$mail_mime .= " boundary=\"----=$limite\"\n\n";
 	
 	$texte = "------=".$limite."\n";
-	$texte .= "Content-Type: text/html; charset=\"iso-8859-1\"\n";
+	$texte .= "Content-Type: text/html; charset=\"utf8\"\n";
 	$texte .= "Content-Transfer-Encoding: 8bit\n\n";
 	
 	//url de desinscription et de comptage des lectures
@@ -103,13 +103,13 @@ if (!$_SESSION['user']->check_permission ("14")) {
 		$infos['mail_reply_name'] = $newsletter->getNom_expediteur();
 		
 		if (!$mail->envoi($destinataires , $sujet , $message , $infos)) {
-			echo "Une erreur est survenue lors de l'envoi à ".$fiche->email."<br />";
+			echo "Une erreur est survenue lors de l'envoi Ã  ".$fiche->email."<br />";
 		}
 		set_error_handler("error_handler");
 	}
 	
 	
-	// l'envois est terminé, on met à jour la durée
+	// l'envois est terminÃ©, on met Ã  jour la durÃ©e
 	if (!count($fiches)) {
 		$newsletter->save_brouillon ("", "");
 	 	duree_newsletter_envoi ($id_envoi);

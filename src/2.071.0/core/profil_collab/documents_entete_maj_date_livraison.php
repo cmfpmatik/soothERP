@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // MAJ DE LA DATE_LIVRAISON D'UN DOCUMENT
 // *************************************************************************************************************
@@ -11,7 +11,7 @@ require ($DIR."_session.inc.php");
 
 if (isset($_REQUEST['ref_doc'])) {
 
-// ouverture des infos du document et mise � jour
+// ouverture des infos du document et mise à jour
 	$document = open_doc ($_REQUEST['ref_doc']);
 
 	$date = date_Fr_to_Us ($_REQUEST['info_content']);

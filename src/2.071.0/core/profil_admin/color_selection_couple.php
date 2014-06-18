@@ -1,4 +1,4 @@
-<HTML>
+﻿<HTML>
 <head>
 <title>Text Color</title>
 <script>
@@ -44,7 +44,7 @@ function click(){
 }
 </script>
 
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 <!--
 td {

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require ("_interface.config.php");
 require ($DIR."_session.inc.php");
 require_once ("_inscription_profil_client.class.php");

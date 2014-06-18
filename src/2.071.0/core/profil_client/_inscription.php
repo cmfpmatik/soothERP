@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 // *************************************************************************************************************
 // INSCRIPTION DE L'UTILISATEUR CLIENT
 // *************************************************************************************************************
@@ -10,16 +10,16 @@ require("_session.inc.php");
 
 
 
-if ($_SESSION['user']->getLogin()) //l'utilisateur est déjà logé, il ne doit pas s'inscrire !
+if ($_SESSION['user']->getLogin()) //l'utilisateur est deja log, il ne doit pas s'inscrire !
 {		header ("Location: index.php");}
 
-$civilites = get_civilites(1);// Par défaut id_categorie = 1 => Particulier
+$civilites = get_civilites(1);// Par dÃ¯Â¿Â½faut id_categorie = 1 => Particulier
 
 
 // *************************************************************************************************************
 // AFFICHAGE
 // *************************************************************************************************************
 if (!$INSCRIPTION_ALLOWED)
-{			include ($DIR.$_SESSION['theme']->getDir_theme()."page_index.inc.php");}
-else{	include ($DIR.$_SESSION['theme']->getDir_theme()."page_inscription.inc.php");}
+{include ($DIR.$_SESSION['theme']->getDir_theme()."page_index.inc.php");}
+else{include ($DIR.$_SESSION['theme']->getDir_theme()."page_inscription.inc.php");}
 ?>

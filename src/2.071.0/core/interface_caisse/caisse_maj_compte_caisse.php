@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 // *************************************************************************************************************
 // MAJ DE L'ETAT D'UN TICKET
 // *************************************************************************************************************
@@ -9,7 +9,7 @@ require ("_session.inc.php");
 
 
 if (!isset($_REQUEST['id_compte_caisse']) || $_REQUEST['id_compte_caisse'] == "") {
-	echo "Le numéro de caisse n'est pas spécifié";
+	echo "Le numÃ©ro de caisse n'est pas spÃ©cifiÃ©";
 	exit;
 }
 

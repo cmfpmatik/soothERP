@@ -1,9 +1,9 @@
-<?php
+ï»¿<?php
 // *************************************************************************************************************
 // FICHIER DE CONFIGURATION DES BONS DE FABRICATION
 // *************************************************************************************************************
 
-$DUREE_AVANT_PURGE_ANNULE_FAB = 60;	// Délai avant la suppression des docs annulés
+$DUREE_AVANT_PURGE_ANNULE_FAB = 60;	// DÃ©lai avant la suppression des docs annulÃ©s
 
 
 $FABRICATION_ID_TYPE_DOC = 12;

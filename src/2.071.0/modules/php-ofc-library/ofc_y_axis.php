@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class y_axis extends y_axis_base
 {

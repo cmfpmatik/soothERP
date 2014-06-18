@@ -1,7 +1,8 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // ACCUEIL DE L'UTILISATEUR ADMINISTRATEUR
 // *************************************************************************************************************
+$_PAGE['MUST_BE_LOGIN'] = 1;
 
 
 require ("_dir.inc.php");
@@ -9,7 +10,7 @@ require ("_profil.inc.php");
 require ($DIR."_session.inc.php");
 
 
-// Liste des profils autoris�s
+// Liste des profils autorisï¿½s
 $profils_allowed = $_SESSION['user']->getProfils_allowed();
 
 setcookie("uncahe_profil_collab", date("Y-m-d H:i:s"), time() + $COOKIE_LOGIN_LT , '/');
@@ -20,6 +21,7 @@ if (isset($_REQUEST["uncache"])) {
 // AFFICHAGE
 // *************************************************************************************************************
 
-include ($DIR.$_SESSION['theme']->getDir_theme()."page_index.inc.php");
+
+include ($DIR.$_SESSION['theme']->getDir_theme()."page_index.inc.php"); 
 
 ?>

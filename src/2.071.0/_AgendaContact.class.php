@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // CLASSES REGISSANT LES INFORMATIONS SUR UN AGENDA
 // *************************************************************************************************************
@@ -119,7 +119,7 @@ class AgendaContact extends Agenda{
 	// *************************************************************************************************************
 	// Getters & Setters
 	// *************************************************************************************************************
-	//Cerataines fonctions sont redondante avec les fonctions "static" -> normales, c'est plus simple � utiliser
+	//Cerataines fonctions sont redondante avec les fonctions "static" -> normales, c'est plus simple à utiliser
 	
 	public function getContact()
 	{		return $this->contact;}

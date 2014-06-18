@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /* this is a base class */
 

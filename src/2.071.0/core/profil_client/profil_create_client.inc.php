@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $infos_profils[$id_profil]['id_client_categ'] 		=  "";
 $infos_profils[$id_profil]['type_client'] 				=  "";
 $infos_profils[$id_profil]['id_tarif'] 						=  "";

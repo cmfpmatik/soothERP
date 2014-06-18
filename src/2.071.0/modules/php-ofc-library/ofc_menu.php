@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class ofc_menu_item
 {

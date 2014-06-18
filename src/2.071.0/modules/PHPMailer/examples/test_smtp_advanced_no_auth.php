@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
 <title>PHPMailer - SMTP advanced test with no authentication</title>
 </head>

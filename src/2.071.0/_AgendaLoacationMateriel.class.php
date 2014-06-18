@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // CLASSES REGISSANT LES INFORMATIONS SUR UN AGENDA
 // *************************************************************************************************************
@@ -120,7 +120,7 @@ class AgendaLoacationMateriel extends Agenda{
 	// *************************************************************************************************************
 	// Getters & Setters
 	// *************************************************************************************************************
-	//Cerataines fonctions sont redondante avec les fonctions "static" -> normales, c'est plus simple � utiliser
+	//Cerataines fonctions sont redondante avec les fonctions "static" -> normales, c'est plus simple à utiliser
 	public function getArticle()
 	{	if($this->article == null)
 				$this->article = new article($this->ref_article);

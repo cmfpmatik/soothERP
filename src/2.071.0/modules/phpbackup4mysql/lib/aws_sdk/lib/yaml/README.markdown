@@ -1,4 +1,4 @@
-Symfony YAML: A PHP library that speaks YAML
+﻿Symfony YAML: A PHP library that speaks YAML
 ============================================
 
 Symfony YAML is a PHP library that parses YAML strings and converts them to

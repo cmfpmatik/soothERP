@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * A private class. All the other line-dots inherit from this.

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // This example is writen in UTF-8
 
 // Load library

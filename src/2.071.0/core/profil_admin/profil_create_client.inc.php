@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	// bac 19/04/2010 version 2.051 modification des noms des champs de retour dans page_annuaire_nouvelle_fiche_profil4.inc.php
 	/*
 	$infos_profils[$id_profil]['id_client_categ'] 			=  $_REQUEST['id_client_categ'];

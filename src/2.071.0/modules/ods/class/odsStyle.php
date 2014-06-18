@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*-
  * Copyright (c) 2009 Laurent VUIBERT
  * License : GNU Lesser General Public License v3
@@ -751,7 +751,7 @@ class odsStyleMoneyEUR extends odsStyleMoney {
 			$number_text = $dom->createElement('number:text', ' ');
 				$number_currency_style->appendChild($number_text);
 		
-			$number_currency_symbol = $dom->createElement('number:currency-symbol', '€');
+			$number_currency_symbol = $dom->createElement('number:currency-symbol', 'â‚¬');
 				$number_currency_symbol->setAttribute("number:language", "fr");
 				$number_currency_symbol->setAttribute("number:country", "FR");
 				$number_number->setAttribute("number:grouping", "true");
@@ -791,7 +791,7 @@ class odsStyleMoneyEURNeg extends odsStyleMoney {
 			$number_text = $dom->createElement('number:text', ' ');
 				$number_currency_style->appendChild($number_text);
 		
-			$number_currency_symbol = $dom->createElement('number:currency-symbol', '€');
+			$number_currency_symbol = $dom->createElement('number:currency-symbol', 'â‚¬');
 				$number_currency_symbol->setAttribute("number:language", "fr");
 				$number_currency_symbol->setAttribute("number:country", "FR");
 				$number_currency_style->appendChild($number_currency_symbol);
@@ -891,7 +891,7 @@ class odsStyleMoneyGBP extends odsStyleMoney {
 			$number_currency_style->setAttribute("style:name", "NCur-GBP-P0");
 			$number_currency_style->setAttribute("style:volatile", "true");
 
-			$number_currency_symbol = $dom->createElement('number:currency-symbol', '£');
+			$number_currency_symbol = $dom->createElement('number:currency-symbol', 'Â£');
 				$number_currency_symbol->setAttribute("number:language", "en");
 				$number_currency_symbol->setAttribute("number:country", "GB");
 				$number_currency_style->appendChild($number_currency_symbol);
@@ -926,7 +926,7 @@ class odsStyleMoneyGBPNeg extends odsStyleMoney {
 			$number_text = $dom->createElement('number:text', '-');
 				$number_currency_style->appendChild($number_text);
 		
-			$number_currency_symbol = $dom->createElement('number:currency-symbol', '£');
+			$number_currency_symbol = $dom->createElement('number:currency-symbol', 'Â£');
 				$number_currency_symbol->setAttribute("number:language", "en");
 				$number_currency_symbol->setAttribute("number:country", "GB");
 				$number_currency_style->appendChild($number_currency_symbol);

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // ACCUEIL DE L'UTILISATEUR ADMINISTRATEUR
 // *************************************************************************************************************
@@ -13,7 +13,7 @@ require_once ($DIR."_session.inc.php");
 //Reference de l'id
 if (!isset($_REQUEST['ref_date'])) 
 {
-	echo "La référence de la date n'est pas précisée";
+	echo "La rÃ©fÃ©rence de la date n'est pas prÃ©cisÃ©e";
 	exit;
 }
 
@@ -31,7 +31,7 @@ if(!empty($_REQUEST["selected"]))
 
 $date_format = (!empty($_REQUEST['date_format']))? $_REQUEST['date_format'] : "%d-%m-%Y";
 // ******************************
-// Traitement de la date renvoyée
+// Traitement de la date renvoyÃ©e
 // ******************************
 $Udate_now = time();
 if(isset($_REQUEST["date_min"]))

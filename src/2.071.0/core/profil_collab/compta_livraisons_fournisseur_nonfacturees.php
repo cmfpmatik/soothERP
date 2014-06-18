@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // LIVRAISONS fournisseurS NON FACTUREES
 // *************************************************************************************************************
@@ -8,7 +8,7 @@ require ("_dir.inc.php");
 require ("_profil.inc.php");
 require ($DIR."_session.inc.php");
 
-//chargement des livraisons non factur�es
+//chargement des livraisons non facturées
 $livraisons = array();
 $order = "";
 //liste des lieux de stock

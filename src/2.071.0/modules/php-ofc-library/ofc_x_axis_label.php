@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * x_axis_label see x_axis_labels

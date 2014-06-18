@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // ACCUEIL DE L'UTILISATEUR ADMINISTRATEUR
 // *************************************************************************************************************
@@ -13,7 +13,7 @@ require_once ($DIR."_session.inc.php");
 // *************************************************************************************************************
 
 if(!isset($_REQUEST["Udate_mini_calendrier"])){
-	echo "la date au format timestamp UNIX n'est pas spécifié";
+	echo "la date au format timestamp UNIX n'est pas spÃ©cifiÃ©";
 	exit;
 }
 

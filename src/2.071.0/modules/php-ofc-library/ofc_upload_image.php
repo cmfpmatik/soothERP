@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 //
 // In Open Flash Chart -> save_image debug mode, you

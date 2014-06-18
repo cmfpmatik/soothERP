@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Defines the methods that all implementing classes MUST have. Covers CRUD (create, read, update,
  * delete) methods, as well as others that are used in the base <CacheCore> class.

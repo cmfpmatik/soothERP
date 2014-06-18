@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // RECHERCHE DES CONNEXIONS DES UTILISATEURS
 // *************************************************************************************************************
@@ -27,7 +27,7 @@ if (isset ($liste_profils_contact [$COLLAB_ID_PROFIL])) {
 
 }
 // *************************************************
-// Profils � afficher
+// Profils à afficher
 
 $profils_avancees = array();
 foreach ($_SESSION['profils'] as $profil) {

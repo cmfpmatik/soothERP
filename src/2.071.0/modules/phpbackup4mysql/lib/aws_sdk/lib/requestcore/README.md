@@ -1,4 +1,4 @@
-# RequestCore
+﻿# RequestCore
 
 RequestCore is a lightweight cURL-based HTTP request/response class that leverages MultiCurl for parallel requests.
 

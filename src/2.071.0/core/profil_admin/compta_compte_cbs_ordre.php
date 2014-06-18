@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // MODIF ORDRE D'UNE CARTE BANCAIRE 
 // *************************************************************************************************************
@@ -13,7 +13,7 @@ echo $_REQUEST["id_compte_cb"];
 //ouverture de la class compte_cb
 	$compte_cb = new compte_cb ($_REQUEST["id_compte_cb"]);
 	
-	//cr�ation du compte
+	//création du compte
 	$compte_cb->modifier_ordre ($_REQUEST["new_ordre"]);
 
 // *************************************************************************************************************

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class msg_modele_doc_standard extends msg_modele{
 

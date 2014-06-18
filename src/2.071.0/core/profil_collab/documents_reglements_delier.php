@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // *************************************************************************************************************
 // DELIER D'UN REGLEMENT
 // *************************************************************************************************************
@@ -15,7 +15,7 @@ if (isset($_REQUEST["ref_reglement"])) {
 	
 	$ref_doc = $_REQUEST["ref_doc"];
 	$document = open_doc($ref_doc);
-	//supression du r�glement
+	//supression du règlement
 	$document->delier_reglement ($_REQUEST["ref_reglement"]);  
 	}
 	

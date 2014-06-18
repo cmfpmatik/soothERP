@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 // *************************************************************************************************************
 // GENERATION D'UN NOUVEAU CODE_AFFAIRE D'UN DOCUMENT 
 // *************************************************************************************************************
@@ -10,9 +10,9 @@ require ($DIR."_session.inc.php");
 
 global $bdd;
 
-// Le préfixe des codes affaires
+// Le prÃ©fixe des codes affaires
 $prefixe = 'AFF';
-// Le nombre de caractères à afficher après le préfixe
+// Le nombre de caractÃ¨res Ã  afficher aprÃ¨s le prÃ©fixe
 $nb_car = 5;
 
 if(isset($_REQUEST['code_affaire'])){
