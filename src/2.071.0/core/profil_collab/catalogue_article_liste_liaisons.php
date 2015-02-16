@@ -7,7 +7,7 @@
 require ("_dir.inc.php");
 require ("_profil.inc.php");
 require ($DIR."_session.inc.php");
-require_once ($DIR."_article_liaisons_types.class.php");
+require_once ($LIBDIR."_article_liaisons_types.class.php");
 
 function cmp_qte($a,$b){
 	if ($a["Qte"] == $b["Qte"])
@@ -48,7 +48,7 @@ function traite_liaisons_array(&$Mydoc, $Liaisons,$quantite){
 			
 			if($tmp["Qte"] < $tmp["Valo_indice"])
 			{		$tmp["Qte"] = $tmp["Valo_indice"];}
-			$tmp["Prix"] = $tmp["Qte"] * $Mydoc->select_article_pu(&$Myarticle,$tmp["Qte"]);
+			$tmp["Prix"] = $tmp["Qte"] * $Mydoc->select_article_pu_byref($Myarticle,$tmp["Qte"]);
 			$result[] = $tmp;
 			} 
 		
@@ -79,8 +79,8 @@ function Calcul_pack_equiv(&$Mydoc, &$Myarticle, $Myquantite){
 			$tmp["Qte"] = $Myquantite;
 			if($tmp["Qte"] < $tmp["Valo_indice"])
 			{		$tmp["Qte"] = $tmp["Valo_indice"];}
-			$tmp["Prix"] = $tmp["Qte"] * $Mydoc->select_article_pu(&$Myarticle, $tmp["Qte"]);
-			$Equiv = traite_liaisons_array(&$Mydoc, $Liaisons, $Myquantite);
+			$tmp["Prix"] = $tmp["Qte"] * $Mydoc->select_article_pu_byref($Myarticle, $tmp["Qte"]);
+			$Equiv = traite_liaisons_array($Mydoc, $Liaisons, $Myquantite);
 			$Equiv[] = $tmp;
 			usort($Equiv,"cmp_prix");
 		

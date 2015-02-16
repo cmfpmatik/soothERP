@@ -1634,10 +1634,10 @@ function restoreDB($file_dump) {
 }
 
 function restoreBackup($path, $file_backup) {
-	global $bdd_hote,$bdd_user,$bdd_pass,$bdd_base,$LIB_DIR_EXT;
+	global $bdd_hote,$bdd_user,$bdd_pass,$bdd_base,$LIB_DIR_EXT,$DIR;
 
-	require ($LIB_DIR_EXT ."phpbackup4mysql/phpBackup4MySQL.class.php");
-	require_once ($LIB_DIR_EXT ."phpbackup4mysql/config/config.inc.php");
+	require_once ($LIB_DIR_EXT .'phpbackup4mysql/config/config.inc.php');
+	require_once ($LIB_DIR_EXT .'phpbackup4mysql/phpBackup4MySQL.class.php');
 
 //Create a new phpbackup4mysql instance
 	$pb4ms = new phpBackup4mysql();

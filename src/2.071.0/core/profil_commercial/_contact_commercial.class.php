@@ -20,7 +20,7 @@ class contact_commercial extends contact_profil {
 		$this->ref_contact = $ref_contact;
 		if ($action == "create") {return false;}
 		$query		 = "SELECT ac.ref_contact, ac.id_commercial_categ, ac.id_commission_regle,cr.lib_comm, cr.formule_comm, cc.lib_commercial_categ
-						FROM  annu_commercial ac
+						FROM annu_commercial ac
 						LEFT JOIN commissions_regles cr ON cr.id_commission_regle = ac.id_commission_regle
 						LEFT JOIN commerciaux_categories cc ON cc.id_commercial_categ = ac.id_commercial_categ
 						WHERE ref_contact = '" . $this->ref_contact . "' ";

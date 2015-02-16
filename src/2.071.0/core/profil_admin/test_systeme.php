@@ -21,12 +21,12 @@ if (!isset($_SESSION['TEST_SYSTEME']) || !$_SESSION['TEST_SYSTEME']) {
 	
 	for ($i=1; $i<=1; $i++) {
 		// Vérification de la version php 
-		if (version_compare(PHP_VERSION, '5.2.0') < 0) {
-			$retour_texte .= "Votre version de PHP est insuffisante. <br> Actuellement: ".PHP_VERSION." / Recquis: 5.2.0<br>";
-			$GLOBALS['_INFOS']['test_systeme'][] = "Votre version de PHP est insuffisante. <br> Actuellement: ".PHP_VERSION." / Recquis: 5.2.0<br>";
+		if (version_compare(PHP_VERSION, '5.3.0') < 0) {
+			$retour_texte .= "Votre version de PHP est insuffisante. <br> Actuellement: ".PHP_VERSION." / Recquis: 5.3.0<br>";
+			$GLOBALS['_INFOS']['test_systeme'][] = "Votre version de PHP est insuffisante. <br> Actuellement: ".PHP_VERSION." / Recquis: 5.3.0<br>";
 			break;
 		} 
-		$retour_texte .=  "Version de PHP suffisante: Actuellement: ".PHP_VERSION." / Requis: 5.2.0<br>";
+		$retour_texte .=  "Version de PHP suffisante: Actuellement: ".PHP_VERSION." / Requis: 5.3.0<br>";
 	
 		// Test de la présence de la librairie GD
 		if (!@extension_loaded('gd')) {
@@ -342,7 +342,7 @@ if (!count($GLOBALS['_INFOS']['test_systeme'])) {
 }
 ?>
 	<span style="float:left; padding-right:20px"><img src="<?php echo $DIR.$_SESSION['theme']->getDir_gtheme()?>images/blank.gif" width="22px" /></span><span id="aff_rapport" style="cursor:pointer; text-decoration:underline;" >Voir le rapport de test</span><br />
-	<div style="display:none;padding-left:42px; font-weight:bolder" id="rapport_text"><?php echo $retour_texte;?></br></div>
+	<div style="display:none;padding-left:42px; font-weight:bolder" id="rapport_text"><?php global $retour_texte; echo isset($retour_texte)? $retour_texte: "";?></br></div>
 	<script type="text/javascript">
 		Event.observe("aff_rapport", "click", function() {$("rapport_text").toggle();}, false);
 	</script>

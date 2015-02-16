@@ -16,14 +16,14 @@ function open_client_panier () {
 						LIMIT 0,1";
 	$resultat = $bdd->query ($query);
 	if ($doc = $resultat->fetchObject()) {
-		require_once ($DIR."documents/_doc_".strtolower($_SESSION['types_docs'][$doc->id_type_doc]->code_doc).".class.php");
+		require_once ($LIBDIR."documents/_doc_".strtolower($_SESSION['types_docs'][$doc->id_type_doc]->code_doc).".class.php");
 		// Creation de l'objet correspondant
 		$classe_doc = "doc_".$_SESSION['types_docs'][$doc->id_type_doc]->code_doc;
 		$document = new $classe_doc ($doc->ref_doc);
 		$document->open_doc();
 	
 	} else {
-		require_once ($DIR."documents/_doc_".strtolower($_SESSION['types_docs'][$PANIER_CLIENT_ID_TYPE_DOC]->code_doc).".class.php");
+		require_once ($LIBDIR."documents/_doc_".strtolower($_SESSION['types_docs'][$PANIER_CLIENT_ID_TYPE_DOC]->code_doc).".class.php");
 		// Creation d'un nouvel objet correspondant
 		$classe_doc = "doc_".$_SESSION['types_docs'][$PANIER_CLIENT_ID_TYPE_DOC]->code_doc;
 		$document = new $classe_doc ();

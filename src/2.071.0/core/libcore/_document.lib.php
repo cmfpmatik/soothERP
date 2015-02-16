@@ -5,8 +5,7 @@
 
 // Fonction permettant d'ouvrir un document existant
 function open_doc ($ref_doc) {
-	global $bdd;
-	global $DIR;
+	global $bdd,$LIB_DIR;
 
 	/* Utilisation du document en cache si besoin
 	if (isset($_SESSION['user']->doc_actu) && $ref_doc == $_SESSION['user']->doc_actu->getRef_doc ()) {
@@ -21,7 +20,7 @@ function open_doc ($ref_doc) {
 	if (!$doc = $resultat->fetchObject()) { return false; }
 
 	// Creation de l'objet correspondant
-	require_once ($DIR."documents/_doc_".strtolower($_SESSION['types_docs'][$doc->id_type_doc]->code_doc).".class.php");
+	require_once ($LIB_DIR."documents/_doc_".strtolower($_SESSION['types_docs'][$doc->id_type_doc]->code_doc).".class.php");
 	$classe_doc = "doc_".$_SESSION['types_docs'][$doc->id_type_doc]->code_doc;
 	$document = new $classe_doc ($ref_doc);
  
@@ -39,9 +38,9 @@ function open_doc ($ref_doc) {
 
 // Fonction permettant de créer un document
 function create_doc ($id_type_doc) {
-	global $DIR;
+	global $LIB_DIR;
 	// Creation de l'objet correspondant
-	require_once ($DIR."documents/_doc_".strtolower($_SESSION['types_docs'][$id_type_doc]->code_doc).".class.php");
+	require_once ($LIB_DIR."documents/_doc_".strtolower($_SESSION['types_docs'][$id_type_doc]->code_doc).".class.php");
 	$classe_doc = "doc_".$_SESSION['types_docs'][$id_type_doc]->code_doc;
 	$document = new $classe_doc ();
 	$document->create_doc ();
@@ -1152,17 +1151,16 @@ function ordre_filigranes ($id_filigrane, $old_ordre, $new_ordre) {
 
 //purge des documents annulés
 function purge_all_docs_annules ($id_type_doc = "") {
-	global $bdd;
-	global $DIR;
+	global $bdd,$LIB_DIR;
 	
 	$nb_docs_purged = 0;
 	ini_set("memory_limit","20M");
 	
 	foreach ($_SESSION['types_docs'] as $type_doc) {
 		if ($id_type_doc && $id_type_doc != $type_doc->id_type_doc) {continue;}
-                if(file_exists($DIR."documents/_doc_".strtolower($type_doc->code_doc).".class.php"))
+                if(file_exists($LIB_DIR."documents/_doc_".strtolower($type_doc->code_doc).".class.php"))
                 {
-                    require_once ($DIR."documents/_doc_".strtolower($type_doc->code_doc).".class.php");
+                    require_once ($LIB_DIR."documents/_doc_".strtolower($type_doc->code_doc).".class.php");
                     $classe_doc = "doc_".$type_doc->code_doc;
                     $document = new $classe_doc ();
                     $id_etat_annule = $document->getID_ETAT_ANNULE ();

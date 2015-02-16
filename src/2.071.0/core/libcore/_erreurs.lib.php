@@ -16,7 +16,7 @@ function error_handler($errno, $errstr, $errfile, $errline) {
     $erreur = "ERREUR PHP: [" . $errno . "] \n
 	" . $errstr . "\n
 	<b>" . $errfile . "</b> - ligne <b>" . $errline . "</b> \n\n";
-    alerte_dev($erreur, " " . substr($errfile, strlen($_SERVER['DOCUMENT_ROOT'])) . " - $errline", $errno, $errstr, $errfile, $errline);
+    alerte_dev($erreur, " " . $_SERVER["PHP_SELF"] . " - $errline", $errno, $errstr, $errfile, $errline);
 
     return true;
 }
@@ -55,7 +55,8 @@ function alerte_dev($erreur, $libelle_supp = "", $errno = "", $errstr = "", $err
 	--------------<br />
 	Script en erreur : " . $_SERVER["PHP_SELF"] . "<br />";
     if (isset($_SERVER["HTTP_REFERER"])) {
-        $rapport .= "Referer = " . $_SERVER["HTTP_REFERER"] . "<br /> ";
+        $rapport .= "
+	Referer : " . $_SERVER["HTTP_REFERER"] . "<br /> ";
     }
     if (isset($_SERVER["HTTP_USER_AGENT"])) {
         $rapport .= "
@@ -92,7 +93,11 @@ function alerte_dev($erreur, $libelle_supp = "", $errno = "", $errstr = "", $err
     }
     $rapport .= "<br /><br />
 
-	============================================================================<br />";
+	============================================================================<br />
+	<b>INFORMATIONS PHP</b> :<br /><br />
+	Current PHP version: ". phpversion() ."<br />
+	Current PHP os: ". php_uname() ."<br /><br />
+	===========================================================================<br /><br />";
     //$rapport = str_replace ($bdd_user, $sensibleDataSubstitute, $rapport);
     //$rapport = str_replace ($bdd_pass, $sensibleDataSubstitute, $rapport);
 
@@ -125,18 +130,25 @@ function alerte_dev($erreur, $libelle_supp = "", $errno = "", $errstr = "", $err
 			Vous pouvez utilement faire avancer le projet SoothERP en complétant un rapport de bug sur le <a href='https://bugs.sootherp.fr' target='_blank'>bug tracker SoothERP</a></b><br/> <span id='view_rapport' style='cursor: pointer;'";
 
         // Création d'un log, entre balises php pour en éviter la possibilité d'affichage par un navigateur
+		
         $errorlog = "<?php \n/*";
-        $errorlog .= "\n\n###################################################################################################\n\n";
-        $errorlog .= "RAPPORT DE PLANTAGE \n\n";
-        $errorlog .= "\n\n" . strip_tags($rapport) . "\n\n";
-        $errorlog .= "ENVIRONNEMENT COMPLET :\n\n";
+        $errorlog .= "\r\n###################################################################################################\n\n";
+        $errorlog .= "\r\n RAPPORT DE PLANTAGE \n\n";
+        $errorlog .= "\r\n###################################################################################################\n\n";
+        $errorlog .= "\r\n" . strip_tags($rapport) . "\n\n\r\n";
+		$errorlog .= "\r\n###################################################################################################\n\n";
+        $errorlog .= "\r\n ENVIRONNEMENT COMPLET :\n\n";
         $errorlog .= date(" d/m/Y @ h:i:s") . "\n\n";
+		$errorlog .= "\r\n###################################################################################################\r\n\r\n";
         $errorlog .= print_r(debug_backtrace(), true);
-        $errorlog .= "\n\nFIN DU RAPPORT DE PLANTAGE \n\n";
-        $errorlog .= "###################################################################################################\n\n";
+        $errorlog .= "\r\n\r\n###################################################################################################\n\n";
+        $errorlog .= "\r\nFIN DU RAPPORT DE PLANTAGE \n\n";
+        $errorlog .= "\r\n###################################################################################################\r\n";
         $errorlog .= "*/\n?>\n";
 
-        $fp = fopen(__DIR__ . '/log/error.log.php', 'w');
+		$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+		
+        $fp = fopen($root . '/log/error.' . date('d-m-Y-his') . '.log.php' , 'w');
         fwrite($fp, $errorlog);
         fclose($fp);
     }
