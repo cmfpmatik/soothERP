@@ -185,7 +185,7 @@ else
                                        $form['fiches_par_page'], 
                                        $debut, $cfg_nb_pages,
                                        'page_to_show',
-																			 $tototest);
+									$tototest);
 
 
 

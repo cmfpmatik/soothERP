@@ -129,6 +129,8 @@ function alerte_dev($erreur, $libelle_supp = "", $errno = "", $errstr = "", $err
         "<br /><br />
 			Vous pouvez utilement faire avancer le projet SoothERP en complétant un rapport de bug sur le <a href='https://bugs.sootherp.fr' target='_blank'>bug tracker SoothERP</a></b><br/> <span id='view_rapport' style='cursor: pointer;'";
 
+
+
         // Création d'un log, entre balises php pour en éviter la possibilité d'affichage par un navigateur
 		
         $errorlog = "<?php \n/*";
@@ -145,7 +147,7 @@ function alerte_dev($erreur, $libelle_supp = "", $errno = "", $errstr = "", $err
         $errorlog .= "\r\nFIN DU RAPPORT DE PLANTAGE \n\n";
         $errorlog .= "\r\n###################################################################################################\r\n";
         $errorlog .= "*/\n?>\n";
-
+		
 		$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 		
         $fp = fopen($root . '/log/error.' . date('d-m-Y-his') . '.log.php' , 'w');
